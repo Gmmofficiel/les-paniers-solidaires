@@ -4,28 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#16794a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 
 <title>Les Paniers Solidaires</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Inter,Arial,sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 :root{
-    --green:#16794a;
-    --green2:#20a15e;
-    --light:#f3f8f5;
-    --dark:#12372a;
-    --text:#24332c;
+    --green:#16804d;
+    --green-dark:#0b5735;
+    --green-light:#e9f7ef;
+    --bg:#f4f8f5;
+    --text:#183127;
+    --muted:#708078;
     --white:#fff;
-    --orange:#f2a93b;
-    --red:#df5a52;
-    --shadow:0 10px 30px rgba(0,0,0,.08);
+    --orange:#efa83b;
+    --red:#dc5c52;
+    --border:#e2ebe5;
+    --shadow:0 10px 30px rgba(13,54,36,.08);
 }
 
 html{
@@ -33,62 +36,82 @@ html{
 }
 
 body{
-    background:#eef4f0;
+    background:#dfeae3;
     color:var(--text);
     min-height:100vh;
 }
 
-/* APP */
+button,
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+/* =========================
+   APPLICATION
+========================= */
 
 .app{
     width:100%;
-    max-width:500px;
+    max-width:520px;
     min-height:100vh;
     margin:auto;
-    background:#f8fbf9;
+    background:var(--bg);
     position:relative;
     overflow:hidden;
-    box-shadow:0 0 50px rgba(0,0,0,.12);
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 .header{
-    padding:22px 20px 18px;
-    background:linear-gradient(135deg,#0e623b,#20a15e);
-    color:white;
     position:relative;
     overflow:hidden;
+    padding:22px 20px 25px;
+    color:white;
+    background:
+        radial-gradient(circle at 90% 10%,rgba(255,255,255,.18),transparent 25%),
+        radial-gradient(circle at 0% 100%,rgba(255,255,255,.08),transparent 30%),
+        linear-gradient(135deg,#0b5b38,#1ca25f);
 }
 
 .header:before{
     content:"";
     position:absolute;
-    width:200px;
-    height:200px;
+    width:180px;
+    height:180px;
     border-radius:50%;
-    background:rgba(255,255,255,.08);
-    right:-70px;
-    top:-90px;
+    right:-80px;
+    top:-100px;
+    border:30px solid rgba(255,255,255,.05);
 }
 
 .header:after{
     content:"";
     position:absolute;
-    width:130px;
-    height:130px;
+    width:100px;
+    height:100px;
     border-radius:50%;
+    left:-55px;
+    bottom:-65px;
     background:rgba(255,255,255,.05);
-    left:-60px;
-    bottom:-70px;
 }
 
-.top{
+.header-content{
     position:relative;
     z-index:2;
+}
+
+.topbar{
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
 }
 
 .logo{
@@ -97,91 +120,91 @@ body{
     gap:12px;
 }
 
-.logoIcon{
+.logo-box{
     width:48px;
     height:48px;
-    background:white;
+    background:#fff;
     border-radius:15px;
     display:flex;
-    align-items:center;
     justify-content:center;
-    font-size:25px;
-    box-shadow:0 5px 15px rgba(0,0,0,.12);
+    align-items:center;
+    font-size:24px;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
 }
 
-.logoText strong{
-    display:block;
-    font-size:17px;
+.logo-title{
+    font-size:16px;
+    font-weight:800;
 }
 
-.logoText span{
-    font-size:12px;
-    opacity:.85;
+.logo-subtitle{
+    font-size:11px;
+    opacity:.82;
+    margin-top:3px;
 }
 
-.headerButton{
+.contact-button{
     width:42px;
     height:42px;
     border:0;
     border-radius:14px;
     background:rgba(255,255,255,.16);
     color:white;
-    font-size:20px;
-    cursor:pointer;
+    font-size:19px;
 }
 
-/* HERO */
-
 .hero{
-    position:relative;
-    z-index:2;
-    margin-top:20px;
+    margin-top:25px;
 }
 
 .hero h1{
-    font-size:30px;
-    line-height:1.1;
-    margin-bottom:9px;
+    font-size:31px;
+    line-height:1.08;
+    letter-spacing:-1px;
 }
 
 .hero p{
-    font-size:14px;
-    line-height:1.5;
-    opacity:.9;
-}
-
-.heroButton{
-    display:inline-flex;
-    margin-top:16px;
-    padding:12px 17px;
-    background:white;
-    color:var(--green);
-    border-radius:13px;
-    text-decoration:none;
-    font-weight:700;
     font-size:13px;
+    line-height:1.55;
+    opacity:.9;
+    margin-top:10px;
+    max-width:390px;
 }
 
-/* CONTENT */
+.hero-button{
+    margin-top:17px;
+    display:inline-flex;
+    padding:12px 16px;
+    border-radius:13px;
+    border:0;
+    background:#fff;
+    color:var(--green-dark);
+    font-weight:800;
+    font-size:12px;
+}
+
+/* =========================
+   CONTENT
+========================= */
 
 .content{
     padding:20px;
-    padding-bottom:110px;
+    padding-bottom:105px;
 }
 
 .section{
     display:none;
-    animation:fade .35s ease;
+    animation:sectionIn .3s ease;
 }
 
 .section.active{
     display:block;
 }
 
-@keyframes fade{
+@keyframes sectionIn{
     from{
         opacity:0;
-        transform:translateY(10px);
+        transform:translateY(8px);
     }
     to{
         opacity:1;
@@ -190,413 +213,559 @@ body{
 }
 
 .title{
-    margin-bottom:16px;
+    margin-bottom:17px;
 }
 
 .title h2{
     font-size:23px;
-    color:var(--dark);
+    letter-spacing:-.4px;
 }
 
 .title p{
-    color:#6d7c74;
-    font-size:13px;
-    margin-top:4px;
+    margin-top:5px;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.5;
 }
 
-/* QUICK ACTIONS */
+/* =========================
+   QUICK MENU
+========================= */
 
-.quickGrid{
+.quick-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr 1fr;
     gap:12px;
-    margin-bottom:25px;
+    margin-bottom:20px;
 }
 
-.quick{
+.quick-card{
     background:white;
-    border-radius:18px;
+    border:1px solid var(--border);
+    border-radius:19px;
     padding:17px;
     box-shadow:var(--shadow);
-    cursor:pointer;
-    border:1px solid #edf1ee;
     transition:.2s;
 }
 
-.quick:hover{
-    transform:translateY(-3px);
+.quick-card:active{
+    transform:scale(.97);
 }
 
-.quickIcon{
-    width:42px;
-    height:42px;
-    border-radius:13px;
+.quick-icon{
+    width:43px;
+    height:43px;
+    border-radius:14px;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#e7f5ed;
+    background:var(--green-light);
     font-size:21px;
     margin-bottom:11px;
 }
 
-.quick strong{
+.quick-card strong{
     display:block;
-    font-size:14px;
+    font-size:13px;
 }
 
-.quick span{
+.quick-card span{
     display:block;
-    font-size:11px;
-    color:#7b8881;
-    margin-top:3px;
+    color:var(--muted);
+    font-size:10px;
+    margin-top:4px;
 }
 
-/* CARDS */
+/* =========================
+   CARDS
+========================= */
 
 .card{
     background:white;
+    border:1px solid var(--border);
     border-radius:20px;
     padding:18px;
     margin-bottom:14px;
     box-shadow:var(--shadow);
-    border:1px solid #edf1ee;
-}
-
-.cardHeader{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    align-items:flex-start;
 }
 
 .card h3{
-    color:var(--dark);
     font-size:17px;
+    color:var(--text);
 }
 
 .card p{
-    font-size:13px;
-    line-height:1.55;
-    color:#68766f;
+    color:#6d7a73;
+    font-size:12px;
+    line-height:1.6;
     margin-top:7px;
 }
 
+.card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+}
+
 .badge{
-    background:#e7f5ed;
-    color:var(--green);
     padding:6px 9px;
     border-radius:10px;
-    font-size:10px;
-    font-weight:700;
+    background:var(--green-light);
+    color:var(--green-dark);
+    font-size:9px;
+    font-weight:800;
     white-space:nowrap;
 }
 
-.info{
-    margin-top:14px;
-    background:#f5f8f6;
-    padding:12px;
-    border-radius:13px;
-    font-size:12px;
-    line-height:1.6;
+.info-box{
+    background:#f4f8f5;
+    border-radius:14px;
+    padding:13px;
+    margin-top:13px;
+    font-size:11px;
+    line-height:1.7;
 }
 
-.cardButtons{
+.buttons{
     display:flex;
     gap:8px;
     margin-top:14px;
+    flex-wrap:wrap;
 }
 
 .btn{
     border:0;
-    padding:11px 13px;
     border-radius:12px;
-    font-weight:700;
-    cursor:pointer;
-    font-size:12px;
-    text-decoration:none;
+    padding:11px 14px;
+    font-size:11px;
+    font-weight:800;
     display:inline-flex;
     justify-content:center;
     align-items:center;
+    gap:6px;
 }
 
-.btnGreen{
+.btn-green{
     background:var(--green);
     color:white;
 }
 
-.btnLight{
-    background:#eaf4ef;
-    color:var(--green);
+.btn-light{
+    background:var(--green-light);
+    color:var(--green-dark);
 }
 
-/* ALERT */
-
-.alert{
-    background:linear-gradient(135deg,#fff6df,#fffaf0);
-    border:1px solid #f5dda7;
-    border-radius:18px;
-    padding:16px;
-    margin-bottom:18px;
-}
-
-.alert strong{
-    color:#986816;
-}
-
-.alert p{
-    color:#765e2c;
-    font-size:12px;
-    line-height:1.5;
-    margin-top:5px;
-}
-
-/* DONATION */
-
-.donation{
-    background:linear-gradient(135deg,#0e623b,#20a15e);
-    color:white;
-    border-radius:22px;
-    padding:20px;
-    margin-top:15px;
-    box-shadow:0 12px 30px rgba(22,121,74,.22);
-}
-
-.donation h3{
-    font-size:20px;
-}
-
-.donation p{
-    font-size:12px;
-    opacity:.88;
-    line-height:1.5;
-    margin-top:7px;
-}
-
-.donation .btn{
-    margin-top:14px;
-    background:white;
-    color:var(--green);
-}
-
-/* FORM */
-
-.formGroup{
-    margin-bottom:14px;
-}
-
-.formGroup label{
-    display:block;
-    font-size:12px;
-    font-weight:700;
-    margin-bottom:6px;
-    color:#405047;
-}
-
-input,
-select,
-textarea{
-    width:100%;
-    border:1px solid #dfe8e3;
-    background:white;
-    border-radius:12px;
-    padding:12px;
-    outline:none;
-    font-size:13px;
-    color:#25332c;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-    border-color:var(--green2);
-    box-shadow:0 0 0 3px rgba(32,161,94,.08);
-}
-
-textarea{
-    resize:vertical;
-    min-height:90px;
-}
-
-.formGrid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
+.btn-orange{
+    background:#fff2d9;
+    color:#946414;
 }
 
 .full{
     width:100%;
 }
 
-/* CALCULATOR */
+/* =========================
+   ALERT
+========================= */
+
+.alert{
+    padding:15px;
+    border-radius:17px;
+    background:#fff7e5;
+    border:1px solid #f2dfae;
+    margin-bottom:18px;
+}
+
+.alert strong{
+    color:#956a1c;
+    font-size:12px;
+}
+
+.alert p{
+    color:#796638;
+    font-size:11px;
+    line-height:1.55;
+    margin-top:5px;
+}
+
+/* =========================
+   DONATION
+========================= */
+
+.donation{
+    border-radius:21px;
+    padding:20px;
+    color:white;
+    background:linear-gradient(135deg,#0c613b,#20a25e);
+    box-shadow:0 14px 30px rgba(22,128,77,.2);
+}
+
+.donation h3{
+    font-size:19px;
+}
+
+.donation p{
+    color:white;
+    opacity:.88;
+}
+
+.donation .btn{
+    margin-top:14px;
+    background:white;
+    color:var(--green-dark);
+}
+
+/* =========================
+   FORMS
+========================= */
+
+.form-group{
+    margin-bottom:14px;
+}
+
+.form-group label{
+    display:block;
+    font-size:11px;
+    font-weight:800;
+    color:#405047;
+    margin-bottom:6px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    border:1px solid var(--border);
+    background:white;
+    border-radius:12px;
+    padding:12px;
+    outline:none;
+    color:var(--text);
+    font-size:12px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--green);
+    box-shadow:0 0 0 3px rgba(22,128,77,.08);
+}
+
+textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+.grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.required{
+    color:#d84d45;
+}
+
+/* =========================
+   CALCULATOR
+========================= */
 
 .calculator{
-    background:#edf7f1;
-    border-radius:18px;
-    padding:16px;
-    margin-top:18px;
+    background:#eaf6ef;
+    border-radius:19px;
+    padding:17px;
+    margin-bottom:15px;
 }
 
 .calculator h3{
     font-size:16px;
-    color:var(--dark);
-    margin-bottom:12px;
+    margin-bottom:14px;
 }
 
 .result{
     background:white;
     border-radius:15px;
-    padding:16px;
-    margin-top:12px;
+    padding:14px;
     text-align:center;
+    margin-top:12px;
 }
 
 .result small{
-    color:#7a8780;
+    display:block;
+    color:var(--muted);
+    font-size:10px;
 }
 
 .result strong{
     display:block;
-    font-size:26px;
+    font-size:25px;
     color:var(--green);
-    margin-top:4px;
+    margin-top:3px;
 }
 
-/* NEWS */
+/* =========================
+   NEWS
+========================= */
 
 .news{
     background:white;
-    border-radius:18px;
+    border-radius:19px;
     overflow:hidden;
-    box-shadow:var(--shadow);
     margin-bottom:15px;
+    box-shadow:var(--shadow);
+    border:1px solid var(--border);
 }
 
-.newsTop{
-    height:110px;
-    background:linear-gradient(135deg,#b8ddc9,#e7f5ed);
+.news-image{
+    height:115px;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:44px;
+    font-size:45px;
+    background:linear-gradient(135deg,#bce1ca,#eaf7ef);
 }
 
-.newsBody{
+.news-body{
     padding:16px;
 }
 
-.newsBody h3{
-    font-size:16px;
+.news-body h3{
+    font-size:15px;
 }
 
-.newsBody p{
-    font-size:12px;
-    color:#707d76;
-    line-height:1.5;
+.news-body p{
+    color:#6f7c75;
+    font-size:11px;
+    line-height:1.55;
     margin-top:6px;
 }
 
-/* CONTACT */
+/* =========================
+   CONTACT
+========================= */
 
-.contactItem{
+.contact-row{
     display:flex;
-    gap:13px;
-    padding:15px 0;
-    border-bottom:1px solid #edf0ee;
+    align-items:center;
+    gap:12px;
+    padding:14px 0;
+    border-bottom:1px solid #edf1ee;
 }
 
-.contactIcon{
+.contact-row:last-child{
+    border-bottom:0;
+}
+
+.contact-icon{
     width:42px;
     height:42px;
     border-radius:13px;
-    background:#e7f5ed;
+    background:var(--green-light);
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:19px;
+    font-size:18px;
 }
 
-.contactItem strong{
-    font-size:13px;
-}
-
-.contactItem p{
-    margin-top:3px;
-    color:#758179;
+.contact-row strong{
     font-size:12px;
 }
 
-/* BOTTOM NAV */
+.contact-row p{
+    margin-top:3px;
+    color:var(--muted);
+    font-size:11px;
+}
 
-.bottomNav{
+/* =========================
+   BOTTOM NAV
+========================= */
+
+.bottom-nav{
     position:fixed;
     bottom:0;
     left:50%;
     transform:translateX(-50%);
     width:100%;
-    max-width:500px;
-    height:76px;
+    max-width:520px;
+    height:75px;
     background:rgba(255,255,255,.96);
     backdrop-filter:blur(15px);
-    border-top:1px solid #e5ebe7;
+    border-top:1px solid #e3ebe5;
     display:flex;
     justify-content:space-around;
     align-items:center;
     z-index:100;
-    padding-bottom:5px;
 }
 
-.navItem{
+.nav-item{
     border:0;
     background:none;
-    color:#87938d;
-    font-size:10px;
+    color:#8b9791;
+    font-size:9px;
     display:flex;
     flex-direction:column;
     align-items:center;
     gap:4px;
-    cursor:pointer;
-    min-width:60px;
+    min-width:58px;
 }
 
-.navItem span{
-    font-size:22px;
+.nav-item span{
+    font-size:21px;
 }
 
-.navItem.active{
+.nav-item.active{
     color:var(--green);
-    font-weight:700;
+    font-weight:800;
 }
 
-.navCenter{
-    width:58px;
-    height:58px;
-    background:linear-gradient(135deg,#0e623b,#20a15e);
-    border-radius:19px;
+.nav-main{
+    width:57px;
+    height:57px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#0b6039,#20a25e);
     color:white;
-    margin-top:-28px;
-    box-shadow:0 8px 20px rgba(22,121,74,.25);
+    margin-top:-27px;
+    box-shadow:0 9px 22px rgba(20,120,72,.25);
 }
 
-.navCenter span{
+.nav-main span{
     font-size:24px;
 }
 
-/* TOAST */
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(9,37,25,.58);
+    backdrop-filter:blur(5px);
+    display:none;
+    align-items:flex-end;
+    justify-content:center;
+    z-index:500;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:520px;
+    max-height:88vh;
+    overflow:auto;
+    background:white;
+    border-radius:25px 25px 0 0;
+    padding:22px;
+    animation:modalUp .3s ease;
+}
+
+@keyframes modalUp{
+    from{
+        transform:translateY(100%);
+    }
+    to{
+        transform:translateY(0);
+    }
+}
+
+.modal-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.modal-top h3{
+    font-size:19px;
+}
+
+.close{
+    width:35px;
+    height:35px;
+    border:0;
+    border-radius:11px;
+    background:#edf3ef;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.loading{
+    position:fixed;
+    inset:0;
+    background:rgba(255,255,255,.9);
+    backdrop-filter:blur(4px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:2000;
+}
+
+.loading.show{
+    display:flex;
+}
+
+.loader-box{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    width:270px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+.spinner{
+    width:42px;
+    height:42px;
+    border:4px solid #dce9e1;
+    border-top-color:var(--green);
+    border-radius:50%;
+    margin:auto;
+    animation:spin .8s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.loader-box strong{
+    display:block;
+    margin-top:14px;
+    font-size:14px;
+}
+
+.loader-box p{
+    color:var(--muted);
+    font-size:11px;
+    margin-top:5px;
+}
+
+/* =========================
+   TOAST
+========================= */
 
 .toast{
     position:fixed;
     left:50%;
-    bottom:92px;
+    bottom:90px;
     transform:translate(-50%,20px);
     background:#173c2d;
     color:white;
-    padding:12px 18px;
+    padding:12px 17px;
     border-radius:13px;
-    font-size:12px;
+    font-size:11px;
     opacity:0;
     pointer-events:none;
     transition:.3s;
-    z-index:999;
+    z-index:3000;
     width:max-content;
     max-width:90%;
     text-align:center;
@@ -607,51 +776,42 @@ textarea{
     transform:translate(-50%,0);
 }
 
-/* MODAL */
+/* =========================
+   SUCCESS
+========================= */
 
-.modal{
-    position:fixed;
-    inset:0;
-    background:rgba(10,35,24,.55);
-    backdrop-filter:blur(5px);
+.success{
     display:none;
-    align-items:flex-end;
-    justify-content:center;
-    z-index:1000;
+    text-align:center;
+    padding:25px 10px;
 }
 
-.modal.show{
+.success.show{
+    display:block;
+}
+
+.success-icon{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:var(--green-light);
+    color:var(--green);
+    font-size:35px;
     display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0 auto 15px;
 }
 
-.modalBox{
-    background:white;
-    width:100%;
-    max-width:500px;
-    border-radius:25px 25px 0 0;
-    padding:22px;
-    animation:slideUp .3s ease;
-    max-height:85vh;
-    overflow:auto;
+.success h3{
+    font-size:20px;
 }
 
-@keyframes slideUp{
-    from{
-        transform:translateY(100%);
-    }
-    to{
-        transform:translateY(0);
-    }
-}
-
-.close{
-    float:right;
-    border:0;
-    background:#eef4f0;
-    width:35px;
-    height:35px;
-    border-radius:10px;
-    cursor:pointer;
+.success p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.6;
+    margin-top:7px;
 }
 
 /* DESKTOP */
@@ -663,14 +823,14 @@ textarea{
     }
 
     .app{
-        border-radius:30px;
         min-height:calc(100vh - 40px);
+        border-radius:30px;
     }
 
-    .bottomNav{
+    .bottom-nav{
         bottom:20px;
-        border-radius:20px;
         width:calc(100% - 40px);
+        border-radius:20px;
     }
 }
 
@@ -681,39 +841,63 @@ textarea{
 
 <div class="app">
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header class="header">
 
-    <div class="top">
+    <div class="header-content">
 
-        <div class="logo">
+        <div class="topbar">
 
-            <div class="logoIcon">🛒</div>
+            <div class="logo">
 
-            <div class="logoText">
-                <strong>Les Paniers Solidaires</strong>
-                <span>Nord Alpilles</span>
+                <div class="logo-box">
+                    🛒
+                </div>
+
+                <div>
+                    <div class="logo-title">
+                        Les Paniers Solidaires
+                    </div>
+
+                    <div class="logo-subtitle">
+                        Nord Alpilles
+                    </div>
+                </div>
+
             </div>
+
+            <button class="contact-button"
+                    onclick="openContact()">
+                ☎
+            </button>
 
         </div>
 
-        <button class="headerButton" onclick="openContact()">☎</button>
 
-    </div>
+        <div class="hero">
 
-    <div class="hero">
+            <h1>
+                La solidarité<br>
+                au quotidien.
+            </h1>
 
-        <h1>La solidarité<br>au quotidien.</h1>
+            <p>
+                Une épicerie sociale et solidaire pour
+                accompagner les personnes et les familles
+                qui en ont besoin.
+            </p>
 
-        <p>
-            Une épicerie sociale et solidaire pour accompagner
-            les personnes et les familles en difficulté.
-        </p>
+            <button class="hero-button"
+                    onclick="showSection('beneficiaire')">
 
-        <a href="#" class="heroButton" onclick="showSection('beneficiaire');return false;">
-            📝 Devenir bénéficiaire
-        </a>
+                📝 Faire une demande
+
+            </button>
+
+        </div>
 
     </div>
 
@@ -722,39 +906,79 @@ textarea{
 
 <main class="content">
 
-<!-- ACCUEIL -->
+
+<!-- =========================
+     ACCUEIL
+========================= -->
 
 <section id="home" class="section active">
 
     <div class="title">
+
         <h2>Bienvenue 👋</h2>
-        <p>Comment pouvons-nous vous aider ?</p>
+
+        <p>
+            Retrouvez rapidement les services de l'association.
+        </p>
+
     </div>
 
-    <div class="quickGrid">
 
-        <div class="quick" onclick="showSection('epiceries')">
-            <div class="quickIcon">🛒</div>
+    <div class="quick-grid">
+
+        <div class="quick-card"
+             onclick="showSection('epiceries')">
+
+            <div class="quick-icon">🛒</div>
+
             <strong>Nos épiceries</strong>
-            <span>Adresses & horaires</span>
+
+            <span>
+                Adresses & horaires
+            </span>
+
         </div>
 
-        <div class="quick" onclick="showSection('beneficiaire')">
-            <div class="quickIcon">📝</div>
-            <strong>Être bénéficiaire</strong>
-            <span>Faire une demande</span>
+
+        <div class="quick-card"
+             onclick="showSection('beneficiaire')">
+
+            <div class="quick-icon">📝</div>
+
+            <strong>Demande</strong>
+
+            <span>
+                Devenir bénéficiaire
+            </span>
+
         </div>
 
-        <div class="quick" onclick="showSection('mobile')">
-            <div class="quickIcon">🚐</div>
-            <strong>Épicerie itinérante</strong>
-            <span>Voir les passages</span>
+
+        <div class="quick-card"
+             onclick="showSection('mobile')">
+
+            <div class="quick-icon">🚐</div>
+
+            <strong>Itinérante</strong>
+
+            <span>
+                Voir les passages
+            </span>
+
         </div>
 
-        <div class="quick" onclick="showSection('don')">
-            <div class="quickIcon">❤️</div>
+
+        <div class="quick-card"
+             onclick="showSection('don')">
+
+            <div class="quick-icon">❤️</div>
+
             <strong>Faire un don</strong>
-            <span>Soutenir nos actions</span>
+
+            <span>
+                Soutenir l'association
+            </span>
+
         </div>
 
     </div>
@@ -765,36 +989,41 @@ textarea{
         <strong>💚 Une solidarité active</strong>
 
         <p>
-            Notre objectif est d'accompagner les personnes
-            en difficulté vers davantage d'autonomie.
+            L'association accompagne les personnes en
+            difficulté et favorise l'accès à une alimentation
+            de qualité.
         </p>
 
     </div>
 
 
     <div class="title">
-        <h2>À la une</h2>
-        <p>Les dernières informations</p>
+
+        <h2>À la une 📰</h2>
+
+        <p>
+            Les informations de l'association
+        </p>
+
     </div>
 
 
     <div class="news">
 
-        <div class="newsTop">🥕</div>
+        <div class="news-image">
+            🥕
+        </div>
 
-        <div class="newsBody">
+        <div class="news-body">
 
-            <h3>Mieux manger pour tous</h3>
+            <h3>
+                Mieux manger pour tous
+            </h3>
 
             <p>
-                Découvrez les initiatives mises en place pour
-                faciliter l'accès à une alimentation saine et équilibrée.
+                Des actions solidaires pour faciliter
+                l'accès à une alimentation saine et équilibrée.
             </p>
-
-            <button class="btn btnGreen"
-                    onclick="showToast('Article disponible prochainement')">
-                Lire l'article
-            </button>
 
         </div>
 
@@ -803,16 +1032,20 @@ textarea{
 
     <div class="donation">
 
-        <h3>❤️ Soutenez notre action</h3>
+        <h3>
+            ❤️ Soutenez notre action
+        </h3>
 
         <p>
-            Vos dons permettent à l'association de poursuivre
-            ses actions auprès des familles accompagnées.
+            Votre soutien permet de contribuer aux actions
+            de solidarité menées auprès des familles.
         </p>
 
         <button class="btn"
                 onclick="showSection('don')">
+
             Faire un don
+
         </button>
 
     </div>
@@ -820,7 +1053,9 @@ textarea{
 </section>
 
 
-<!-- EPICERIES -->
+<!-- =========================
+     EPICERIES
+========================= -->
 
 <section id="epiceries" class="section">
 
@@ -837,36 +1072,41 @@ textarea{
 
     <div class="card">
 
-        <div class="cardHeader">
+        <div class="card-header">
 
-            <div>
-                <h3>📍 Barbentane</h3>
-            </div>
+            <h3>
+                📍 Barbentane
+            </h3>
 
-            <span class="badge">Épicerie</span>
+            <span class="badge">
+                ÉPICERIE
+            </span>
 
         </div>
 
-        <div class="info">
+        <div class="info-box">
 
-            <strong>Salle Salamandre</strong><br>
+            <strong>
+                Salle Salamandre
+            </strong>
 
-            Rue des Italiens<br><br>
+            <br>
+
+            Rue des Italiens
+
+            <br><br>
 
             🕐 Mercredi : 8h30 → 12h
 
         </div>
 
-        <div class="cardButtons">
+        <div class="buttons">
 
-            <button class="btn btnGreen"
+            <button class="btn btn-green"
                     onclick="openMaps('Salle Salamandre Barbentane')">
-                📍 Itinéraire
-            </button>
 
-            <button class="btn btnLight"
-                    onclick="showToast('Ouvert le mercredi de 8h30 à 12h')">
-                🕐 Horaires
+                📍 Itinéraire
+
             </button>
 
         </div>
@@ -876,37 +1116,49 @@ textarea{
 
     <div class="card">
 
-        <div class="cardHeader">
+        <div class="card-header">
 
-            <div>
-                <h3>📍 Châteaurenard</h3>
-            </div>
+            <h3>
+                📍 Châteaurenard
+            </h3>
 
-            <span class="badge">Épicerie</span>
+            <span class="badge">
+                ÉPICERIE
+            </span>
 
         </div>
 
-        <div class="info">
+        <div class="info-box">
 
-            <strong>35 boulevard Léon Gambetta</strong><br>
-            Châteaurenard<br><br>
+            <strong>
+                35 boulevard Léon Gambetta
+            </strong>
 
-            🕐 Mardi : 9h → 12h<br>
-            🕐 Mardi : 14h → 16h30<br>
+            <br>
+
+            Châteaurenard
+
+            <br><br>
+
+            🕐 Mardi : 9h → 12h
+
+            <br>
+
+            🕐 Mardi : 14h → 16h30
+
+            <br>
+
             🕐 Samedi : 9h → 12h
 
         </div>
 
-        <div class="cardButtons">
+        <div class="buttons">
 
-            <button class="btn btnGreen"
+            <button class="btn btn-green"
                     onclick="openMaps('35 boulevard Léon Gambetta Châteaurenard')">
-                📍 Itinéraire
-            </button>
 
-            <button class="btn btnLight"
-                    onclick="showToast('Voir les horaires ci-dessus')">
-                🕐 Horaires
+                📍 Itinéraire
+
             </button>
 
         </div>
@@ -916,26 +1168,30 @@ textarea{
 
     <div class="card">
 
-        <div class="cardHeader">
+        <div class="card-header">
 
-            <div>
-                <h3>🚐 Épicerie itinérante</h3>
-            </div>
+            <h3>
+                🚐 Épicerie itinérante
+            </h3>
 
-            <span class="badge">Mobile</span>
+            <span class="badge">
+                MOBILE
+            </span>
 
         </div>
 
         <p>
-            Retrouvez-nous directement dans plusieurs communes
-            grâce à notre épicerie itinérante.
+            Retrouvez l'association directement dans
+            différentes communes grâce à l'épicerie mobile.
         </p>
 
-        <div class="cardButtons">
+        <div class="buttons">
 
-            <button class="btn btnGreen"
+            <button class="btn btn-green"
                     onclick="showSection('mobile')">
-                Voir les passages
+
+                🚐 Voir les passages
+
             </button>
 
         </div>
@@ -945,224 +1201,420 @@ textarea{
 </section>
 
 
-<!-- BENEFICIAIRE -->
+<!-- =========================
+     BENEFICIAIRE
+========================= -->
 
 <section id="beneficiaire" class="section">
 
     <div class="title">
 
-        <h2>Devenir bénéficiaire 📝</h2>
+        <h2>
+            Demande de bénéficiaire 📝
+        </h2>
 
         <p>
-            Faites votre demande directement depuis l'application.
+            Remplissez le formulaire. Votre demande sera
+            transformée en PDF et envoyée à l'association.
         </p>
 
     </div>
 
 
-    <div class="alert">
+    <div id="formContainer">
 
-        <strong>ℹ️ Comment ça fonctionne ?</strong>
+        <div class="alert">
 
-        <p>
-            Votre situation est étudiée afin de déterminer
-            votre accès au dispositif et les conditions
-            d'accompagnement.
-        </p>
+            <strong>
+                🔒 Vos informations
+            </strong>
 
-    </div>
-
-
-    <div class="card">
-
-        <div class="formGroup">
-
-            <label>Vous êtes</label>
-
-            <select id="type">
-                <option>Particulier</option>
-                <option>Travailleur social</option>
-            </select>
+            <p>
+                Les informations saisies servent à traiter
+                votre demande. Les justificatifs pourront
+                être demandés ultérieurement.
+            </p>
 
         </div>
 
 
-        <div class="formGrid">
+        <div class="card">
 
-            <div class="formGroup">
+            <h3>
+                👤 Identité
+            </h3>
 
-                <label>Nom</label>
-
-                <input id="nom" placeholder="Votre nom">
-
-            </div>
-
-            <div class="formGroup">
-
-                <label>Prénom</label>
-
-                <input id="prenom" placeholder="Votre prénom">
-
-            </div>
-
-        </div>
+            <br>
 
 
-        <div class="formGrid">
+            <div class="grid-2">
 
-            <div class="formGroup">
+                <div class="form-group">
 
-                <label>Téléphone</label>
+                    <label>
+                        Nom <span class="required">*</span>
+                    </label>
 
-                <input id="telephone"
-                       type="tel"
-                       placeholder="06 00 00 00 00">
+                    <input
+                        id="nom"
+                        type="text"
+                        placeholder="Votre nom"
+                        autocomplete="family-name"
+                    >
 
-            </div>
-
-            <div class="formGroup">
-
-                <label>Email</label>
-
-                <input id="email"
-                       type="email"
-                       placeholder="email@exemple.fr">
-
-            </div>
-
-        </div>
+                </div>
 
 
-        <div class="formGroup">
+                <div class="form-group">
 
-            <label>Adresse</label>
+                    <label>
+                        Prénom <span class="required">*</span>
+                    </label>
 
-            <input id="adresse"
-                   placeholder="Votre adresse">
+                    <input
+                        id="prenom"
+                        type="text"
+                        placeholder="Votre prénom"
+                        autocomplete="given-name"
+                    >
 
-        </div>
-
-
-        <div class="formGrid">
-
-            <div class="formGroup">
-
-                <label>Code postal</label>
-
-                <input id="cp"
-                       placeholder="13160">
+                </div>
 
             </div>
 
-            <div class="formGroup">
 
-                <label>Ville</label>
+            <div class="grid-2">
 
-                <input id="ville"
-                       placeholder="Votre ville">
+                <div class="form-group">
+
+                    <label>
+                        Téléphone <span class="required">*</span>
+                    </label>
+
+                    <input
+                        id="telephone"
+                        type="tel"
+                        placeholder="06 00 00 00 00"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Email <span class="required">*</span>
+                    </label>
+
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="email@exemple.fr"
+                    >
+
+                </div>
 
             </div>
 
         </div>
 
 
-        <div class="formGroup">
+        <div class="card">
 
-            <label>Nombre de personnes à charge</label>
+            <h3>
+                🏠 Coordonnées
+            </h3>
 
-            <input id="personnes"
-                   type="number"
-                   min="0"
-                   value="0">
+            <br>
+
+
+            <div class="form-group">
+
+                <label>
+                    Adresse <span class="required">*</span>
+                </label>
+
+                <input
+                    id="adresse"
+                    type="text"
+                    placeholder="Numéro et rue"
+                >
+
+            </div>
+
+
+            <div class="grid-2">
+
+                <div class="form-group">
+
+                    <label>
+                        Code postal <span class="required">*</span>
+                    </label>
+
+                    <input
+                        id="cp"
+                        type="text"
+                        placeholder="13160"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Ville <span class="required">*</span>
+                    </label>
+
+                    <input
+                        id="ville"
+                        type="text"
+                        placeholder="Votre ville"
+                    >
+
+                </div>
+
+            </div>
 
         </div>
 
-    </div>
+
+        <div class="card">
+
+            <h3>
+                👨‍👩‍👧‍👦 Situation familiale
+            </h3>
+
+            <br>
 
 
-    <div class="calculator">
+            <div class="grid-2">
 
-        <h3>💶 Estimation du reste à vivre</h3>
+                <div class="form-group">
 
-        <div class="formGroup">
+                    <label>
+                        Adultes dans le foyer
+                    </label>
 
-            <label>Ressources mensuelles (€)</label>
+                    <input
+                        id="adultes"
+                        type="number"
+                        min="0"
+                        value="1"
+                    >
 
-            <input id="ressources"
-                   type="number"
-                   placeholder="0">
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Enfants à charge
+                    </label>
+
+                    <input
+                        id="enfants"
+                        type="number"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Nombre total de personnes à charge
+                </label>
+
+                <input
+                    id="personnes"
+                    type="number"
+                    min="0"
+                    value="0"
+                >
+
+            </div>
 
         </div>
 
-        <div class="formGroup">
 
-            <label>Charges mensuelles (€)</label>
+        <div class="calculator">
 
-            <input id="charges"
-                   type="number"
-                   placeholder="0">
+            <h3>
+                💶 Situation financière
+            </h3>
+
+
+            <div class="form-group">
+
+                <label>
+                    Ressources mensuelles (€)
+                </label>
+
+                <input
+                    id="ressources"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    placeholder="0.00"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Charges mensuelles (€)
+                </label>
+
+                <input
+                    id="charges"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    placeholder="0.00"
+                >
+
+            </div>
+
+
+            <button
+                class="btn btn-green full"
+                onclick="calculateReste()"
+            >
+
+                🧮 Calculer mon reste à vivre
+
+            </button>
+
+
+            <div class="result">
+
+                <small>
+                    Reste à vivre mensuel estimé
+                </small>
+
+                <strong id="resultat">
+                    0,00 €
+                </strong>
+
+            </div>
 
         </div>
 
-        <button class="btn btnGreen full"
-                onclick="calculate()">
-            Calculer
+
+        <div class="card">
+
+            <h3>
+                📝 Votre situation
+            </h3>
+
+            <br>
+
+            <div class="form-group">
+
+                <label>
+                    Message / informations complémentaires
+                </label>
+
+                <textarea
+                    id="message"
+                    placeholder="Expliquez brièvement votre situation ou indiquez toute information utile..."
+                ></textarea>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                📎 Documents
+            </h3>
+
+            <p>
+                Les justificatifs nécessaires pourront être
+                demandés par l'association lors de l'étude
+                de votre dossier.
+            </p>
+
+            <div class="info-box">
+
+                📄 Justificatif de logement<br>
+                💶 Justificatifs de ressources<br>
+                🧾 Justificatifs de charges<br>
+                👨‍👩‍👧 Documents familiaux<br>
+                📋 Documents administratifs
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="btn btn-green full"
+            style="padding:15px;font-size:13px"
+            onclick="envoyerDemande()"
+        >
+
+            📩 Envoyer ma demande
+
         </button>
 
-
-        <div class="result">
-
-            <small>Reste à vivre mensuel</small>
-
-            <strong id="resultat">0 €</strong>
-
-        </div>
-
     </div>
 
 
-    <div class="card">
+    <div id="successBox" class="success">
 
-        <h3>📎 Documents</h3>
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h3>
+            Demande envoyée
+        </h3>
 
         <p>
-            Les justificatifs nécessaires pourront être demandés
-            lors de l'étude de votre dossier.
+            Votre demande a bien été transmise.
+            Un document PDF récapitulatif a été généré
+            et envoyé à l'association.
         </p>
 
-        <div class="info">
+        <button
+            class="btn btn-green"
+            style="margin-top:18px"
+            onclick="resetForm()"
+        >
 
-            • Justificatif de logement<br>
-            • Factures / charges<br>
-            • Ressources<br>
-            • Documents familiaux<br>
-            • Justificatifs administratifs
+            Nouvelle demande
 
-        </div>
+        </button>
 
     </div>
-
-
-    <button class="btn btnGreen full"
-            onclick="submitBeneficiaire()">
-
-        📩 Envoyer ma demande
-
-    </button>
 
 </section>
 
 
-<!-- ITINERANTE -->
+<!-- =========================
+     ITINERANTE
+========================= -->
 
 <section id="mobile" class="section">
 
     <div class="title">
 
-        <h2>Épicerie itinérante 🚐</h2>
+        <h2>
+            Épicerie itinérante 🚐
+        </h2>
 
         <p>
-            Retrouvez les différents passages.
+            Retrouvez les passages de l'épicerie mobile.
         </p>
 
     </div>
@@ -1170,21 +1622,29 @@ textarea{
 
     <div class="card">
 
-        <div class="cardHeader">
+        <div class="card-header">
 
-            <h3>Lundi</h3>
+            <h3>
+                Lundi
+            </h3>
 
-            <span class="badge">Tournée</span>
+            <span class="badge">
+                TOURNÉE
+            </span>
 
         </div>
 
-        <div class="info">
+        <div class="info-box">
 
             📍 Graveson<br>
-            🕐 8h30 → 10h<br><br>
+            🕐 8h30 → 10h
+
+            <br><br>
 
             📍 Maillane<br>
-            🕐 10h15 → 11h<br><br>
+            🕐 10h15 → 11h
+
+            <br><br>
 
             📍 Noves<br>
             🕐 13h30 → 14h30
@@ -1196,15 +1656,19 @@ textarea{
 
     <div class="card">
 
-        <div class="cardHeader">
+        <div class="card-header">
 
-            <h3>Vendredi</h3>
+            <h3>
+                Vendredi
+            </h3>
 
-            <span class="badge">Tournée</span>
+            <span class="badge">
+                TOURNÉE
+            </span>
 
         </div>
 
-        <div class="info">
+        <div class="info-box">
 
             📍 Cabannes<br>
             🕐 8h30 → 11h
@@ -1216,20 +1680,19 @@ textarea{
 
     <div class="card">
 
-        <div class="cardHeader">
+        <div class="card-header">
 
-            <h3>📍 Tarascon</h3>
+            <h3>
+                📍 Tarascon
+            </h3>
 
-            <span class="badge">Mobile</span>
+            <span class="badge">
+                MOBILE
+            </span>
 
         </div>
 
-        <p>
-            Une épicerie itinérante est également proposée
-            à Tarascon.
-        </p>
-
-        <div class="info">
+        <div class="info-box">
 
             🕐 Mercredi<br>
             9h → 15h
@@ -1241,12 +1704,13 @@ textarea{
 
     <div class="alert">
 
-        <strong>⚠️ Accès</strong>
+        <strong>
+            ℹ️ Accès
+        </strong>
 
         <p>
-            Pour accéder à l'épicerie itinérante,
-            adressez-vous à votre CCAS ou effectuez
-            une demande de bénéficiaire.
+            Pour connaître les conditions d'accès,
+            contactez l'association ou votre CCAS.
         </p>
 
     </div>
@@ -1254,16 +1718,20 @@ textarea{
 </section>
 
 
-<!-- DON -->
+<!-- =========================
+     DON
+========================= -->
 
 <section id="don" class="section">
 
     <div class="title">
 
-        <h2>Faire un don ❤️</h2>
+        <h2>
+            Faire un don ❤️
+        </h2>
 
         <p>
-            Chaque soutien aide l'association à agir.
+            Chaque soutien contribue aux actions solidaires.
         </p>
 
     </div>
@@ -1271,35 +1739,22 @@ textarea{
 
     <div class="donation">
 
-        <h3>Votre soutien compte.</h3>
+        <h3>
+            Votre soutien compte.
+        </h3>
 
         <p>
             Les dons financiers et matériels permettent
-            de soutenir les familles accompagnées et
-            de développer les actions solidaires.
+            de soutenir les personnes accompagnées et
+            de développer les actions de l'association.
         </p>
 
-        <button class="btn"
-                onclick="showToast('Redirection vers la page de don')">
+        <button
+            class="btn"
+            onclick="showToast('Lien de don à connecter')"
+        >
+
             ❤️ Je souhaite donner
-        </button>
-
-    </div>
-
-
-    <div class="card">
-
-        <h3>🏢 Vous êtes une entreprise ?</h3>
-
-        <p>
-            Vous pouvez devenir un acteur solidaire du territoire
-            grâce aux dons de produits ou aux dons financiers.
-        </p>
-
-        <button class="btn btnGreen"
-                onclick="showSection('partenaire')">
-
-            🤝 Devenir partenaire
 
         </button>
 
@@ -1308,17 +1763,46 @@ textarea{
 
     <div class="card">
 
-        <h3>🥫 Don de produits</h3>
+        <h3>
+            🥫 Donner des produits
+        </h3>
 
         <p>
             Vous souhaitez donner des produits alimentaires,
             d'hygiène ou d'autres produits utiles ?
         </p>
 
-        <button class="btn btnLight"
-                onclick="openContact()">
+        <button
+            class="btn btn-green"
+            onclick="openContact()"
+            style="margin-top:12px"
+        >
 
             Contacter l'association
+
+        </button>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>
+            🤝 Devenir partenaire
+        </h3>
+
+        <p>
+            Entreprise, commerçant, association ou collectivité :
+            vous pouvez soutenir les actions de l'association.
+        </p>
+
+        <button
+            class="btn btn-green"
+            onclick="showSection('partenaire')"
+            style="margin-top:12px"
+        >
+
+            Devenir partenaire
 
         </button>
 
@@ -1327,16 +1811,20 @@ textarea{
 </section>
 
 
-<!-- PARTENAIRE -->
+<!-- =========================
+     PARTENAIRE
+========================= -->
 
 <section id="partenaire" class="section">
 
     <div class="title">
 
-        <h2>Devenir partenaire 🤝</h2>
+        <h2>
+            Devenir partenaire 🤝
+        </h2>
 
         <p>
-            Entreprise, commerçant, restaurateur ou collectivité.
+            Construisons ensemble un projet solidaire.
         </p>
 
     </div>
@@ -1344,65 +1832,100 @@ textarea{
 
     <div class="card">
 
-        <div class="formGroup">
+        <div class="form-group">
 
-            <label>Nom de l'entreprise</label>
+            <label>
+                Entreprise / organisme
+            </label>
 
-            <input id="entreprise"
-                   placeholder="Votre entreprise">
-
-        </div>
-
-
-        <div class="formGroup">
-
-            <label>Nom du contact</label>
-
-            <input id="contact"
-                   placeholder="Votre nom">
+            <input
+                id="entreprise"
+                placeholder="Nom de l'entreprise"
+            >
 
         </div>
 
 
-        <div class="formGroup">
+        <div class="form-group">
 
-            <label>Email</label>
+            <label>
+                Nom du contact
+            </label>
 
-            <input id="emailPart"
-                   type="email"
-                   placeholder="contact@entreprise.fr">
+            <input
+                id="contact"
+                placeholder="Votre nom"
+            >
 
         </div>
 
 
-        <div class="formGroup">
+        <div class="form-group">
 
-            <label>Type de soutien</label>
+            <label>
+                Email
+            </label>
 
-            <select>
+            <input
+                id="emailPartenaire"
+                type="email"
+                placeholder="contact@entreprise.fr"
+            >
 
-                <option>Don financier</option>
-                <option>Don alimentaire</option>
-                <option>Don de produits</option>
-                <option>Mécénat</option>
-                <option>Autre</option>
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Type de soutien
+            </label>
+
+            <select id="typePartenaire">
+
+                <option>
+                    Don financier
+                </option>
+
+                <option>
+                    Don alimentaire
+                </option>
+
+                <option>
+                    Don de produits
+                </option>
+
+                <option>
+                    Mécénat
+                </option>
+
+                <option>
+                    Autre
+                </option>
 
             </select>
 
         </div>
 
 
-        <div class="formGroup">
+        <div class="form-group">
 
-            <label>Message</label>
+            <label>
+                Message
+            </label>
 
-            <textarea placeholder="Expliquez votre projet..."></textarea>
+            <textarea
+                id="messagePartenaire"
+                placeholder="Présentez votre proposition..."
+            ></textarea>
 
         </div>
 
 
-        <button class="btn btnGreen full"
-                onclick="showToast('Votre demande est prête à être envoyée')">
+        <button
+            class="btn btn-green full"
+            onclick="envoyerPartenaire()"
+        >
 
             🤝 Envoyer ma demande
 
@@ -1413,16 +1936,20 @@ textarea{
 </section>
 
 
-<!-- ACTUALITES -->
+<!-- =========================
+     ACTUALITES
+========================= -->
 
 <section id="actualites" class="section">
 
     <div class="title">
 
-        <h2>Actualités 📰</h2>
+        <h2>
+            Actualités 📰
+        </h2>
 
         <p>
-            Découvrez les actions de l'association.
+            Les actions de l'association.
         </p>
 
     </div>
@@ -1430,16 +1957,19 @@ textarea{
 
     <div class="news">
 
-        <div class="newsTop">🥗</div>
+        <div class="news-image">
+            🥗
+        </div>
 
-        <div class="newsBody">
+        <div class="news-body">
 
-            <h3>Mieux manger pour tous</h3>
+            <h3>
+                Mieux manger pour tous
+            </h3>
 
             <p>
-                Une initiative destinée à favoriser une alimentation
-                saine et équilibrée et à faciliter l'accès à des
-                produits de qualité.
+                Faciliter l'accès à une alimentation saine
+                et équilibrée.
             </p>
 
         </div>
@@ -1449,16 +1979,19 @@ textarea{
 
     <div class="news">
 
-        <div class="newsTop">🍓</div>
+        <div class="news-image">
+            🥫
+        </div>
 
-        <div class="newsBody">
+        <div class="news-body">
 
-            <h3>Des produits grâce aux donateurs</h3>
+            <h3>
+                Des produits grâce aux donateurs
+            </h3>
 
             <p>
-                Les partenaires et donateurs permettent de
-                redistribuer de nombreux produits aux personnes
-                accompagnées.
+                Les partenaires et donateurs contribuent
+                aux actions de solidarité.
             </p>
 
         </div>
@@ -1468,15 +2001,19 @@ textarea{
 
     <div class="news">
 
-        <div class="newsTop">🎒</div>
+        <div class="news-image">
+            🤝
+        </div>
 
-        <div class="newsBody">
+        <div class="news-body">
 
-            <h3>Actions solidaires</h3>
+            <h3>
+                Des partenaires engagés
+            </h3>
 
             <p>
-                L'association organise régulièrement des opérations
-                en partenariat avec les acteurs locaux.
+                Les acteurs locaux participent au développement
+                des actions solidaires.
             </p>
 
         </div>
@@ -1486,16 +2023,20 @@ textarea{
 </section>
 
 
-<!-- ASSOCIATION -->
+<!-- =========================
+     ASSOCIATION
+========================= -->
 
 <section id="association" class="section">
 
     <div class="title">
 
-        <h2>L'association 💚</h2>
+        <h2>
+            L'association 💚
+        </h2>
 
         <p>
-            Une solidarité active et responsable.
+            Une association engagée au quotidien.
         </p>
 
     </div>
@@ -1503,12 +2044,14 @@ textarea{
 
     <div class="card">
 
-        <h3>Notre mission</h3>
+        <h3>
+            Notre mission
+        </h3>
 
         <p>
-            Les Paniers Solidaires Nord Alpilles ont pour objectif
-            d'aider les personnes en difficulté et de les accompagner
-            vers davantage d'autonomie.
+            Les Paniers Solidaires Nord Alpilles ont pour
+            objectif d'aider les personnes en difficulté
+            et de les accompagner vers davantage d'autonomie.
         </p>
 
     </div>
@@ -1516,50 +2059,43 @@ textarea{
 
     <div class="card">
 
-        <h3>Nos valeurs</h3>
+        <h3>
+            Nos valeurs
+        </h3>
 
-        <div class="info">
+        <div class="info-box">
 
-            💚 Solidarité active<br><br>
+            💚 Solidarité<br><br>
 
             🤝 Accompagnement<br><br>
 
             🏠 Autonomie<br><br>
 
-            👂 Écoute et orientation<br><br>
+            👂 Écoute<br><br>
 
-            🥫 Hygiène et sécurité alimentaire
+            🥕 Alimentation de qualité
 
         </div>
-
-    </div>
-
-
-    <div class="card">
-
-        <h3>👥 Une équipe engagée</h3>
-
-        <p>
-            Des bénévoles et membres de l'équipe participent
-            toute l'année à l'animation des magasins et aux
-            différentes opérations de l'association.
-        </p>
 
     </div>
 
 </section>
 
 
-<!-- CONTACT -->
+<!-- =========================
+     CONTACT
+========================= -->
 
 <section id="contact" class="section">
 
     <div class="title">
 
-        <h2>Contact ☎️</h2>
+        <h2>
+            Contact ☎️
+        </h2>
 
         <p>
-            Besoin d'une information ?
+            Une question ? Contactez l'association.
         </p>
 
     </div>
@@ -1567,13 +2103,17 @@ textarea{
 
     <div class="card">
 
-        <div class="contactItem">
+        <div class="contact-row">
 
-            <div class="contactIcon">📍</div>
+            <div class="contact-icon">
+                📍
+            </div>
 
             <div>
 
-                <strong>Adresse</strong>
+                <strong>
+                    Adresse
+                </strong>
 
                 <p>
                     35 boulevard Léon Gambetta<br>
@@ -1585,30 +2125,42 @@ textarea{
         </div>
 
 
-        <div class="contactItem">
+        <div class="contact-row">
 
-            <div class="contactIcon">☎️</div>
+            <div class="contact-icon">
+                ☎️
+            </div>
 
             <div>
 
-                <strong>Téléphone</strong>
+                <strong>
+                    Téléphone
+                </strong>
 
-                <p>04 90 39 70 31</p>
+                <p>
+                    04 90 39 70 31
+                </p>
 
             </div>
 
         </div>
 
 
-        <div class="contactItem">
+        <div class="contact-row">
 
-            <div class="contactIcon">✉️</div>
+            <div class="contact-icon">
+                ✉️
+            </div>
 
             <div>
 
-                <strong>Email</strong>
+                <strong>
+                    Email
+                </strong>
 
-                <p>drazik.paniersolidaires@gmail.com</p>
+                <p>
+                    drazik.paniersolidaires@gmail.com
+                </p>
 
             </div>
 
@@ -1617,17 +2169,21 @@ textarea{
     </div>
 
 
-    <button class="btn btnGreen full"
-            onclick="callAssociation()">
+    <button
+        class="btn btn-green full"
+        onclick="window.location.href='tel:0490397031'"
+    >
 
         ☎️ Appeler l'association
 
     </button>
 
 
-    <button class="btn btnLight full"
-            style="margin-top:10px"
-            onclick="openMaps('35 boulevard Léon Gambetta Châteaurenard')">
+    <button
+        class="btn btn-light full"
+        style="margin-top:10px"
+        onclick="openMaps('35 boulevard Léon Gambetta Châteaurenard')"
+    >
 
         📍 Ouvrir dans Maps
 
@@ -1638,12 +2194,16 @@ textarea{
 </main>
 
 
-<!-- BOTTOM NAV -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
-<nav class="bottomNav">
+<nav class="bottom-nav">
 
-    <button class="navItem active"
-            onclick="showSection('home',this)">
+    <button
+        class="nav-item active"
+        onclick="showSection('home',this)"
+    >
 
         <span>🏠</span>
         Accueil
@@ -1651,8 +2211,10 @@ textarea{
     </button>
 
 
-    <button class="navItem"
-            onclick="showSection('epiceries',this)">
+    <button
+        class="nav-item"
+        onclick="showSection('epiceries',this)"
+    >
 
         <span>🛒</span>
         Épiceries
@@ -1660,8 +2222,10 @@ textarea{
     </button>
 
 
-    <button class="navItem navCenter"
-            onclick="showSection('beneficiaire',this)">
+    <button
+        class="nav-item nav-main"
+        onclick="showSection('beneficiaire',this)"
+    >
 
         <span>+</span>
         Demande
@@ -1669,8 +2233,10 @@ textarea{
     </button>
 
 
-    <button class="navItem"
-            onclick="showSection('actualites',this)">
+    <button
+        class="nav-item"
+        onclick="showSection('actualites',this)"
+    >
 
         <span>📰</span>
         Actualités
@@ -1678,8 +2244,10 @@ textarea{
     </button>
 
 
-    <button class="navItem"
-            onclick="showSection('association',this)">
+    <button
+        class="nav-item"
+        onclick="showSection('association',this)"
+    >
 
         <span>💚</span>
         Association
@@ -1691,50 +2259,66 @@ textarea{
 </div>
 
 
-<!-- TOAST -->
+<!-- =========================
+     MODAL CONTACT
+========================= -->
 
-<div id="toast" class="toast"></div>
+<div
+    id="contactModal"
+    class="modal"
+    onclick="closeModalOutside(event)"
+>
+
+    <div class="modal-box">
+
+        <div class="modal-top">
+
+            <h3>
+                Contacter l'association
+            </h3>
+
+            <button
+                class="close"
+                onclick="closeContact()"
+            >
+                ✕
+            </button>
+
+        </div>
 
 
-<!-- MODAL CONTACT -->
+        <div class="info-box">
 
-<div id="contactModal" class="modal">
+            📞 <strong>04 90 39 70 31</strong>
 
-    <div class="modalBox">
+            <br><br>
 
-        <button class="close"
-                onclick="closeContact()">✕</button>
+            ✉️ drazik.paniersolidaires@gmail.com
 
-        <h2>Contacter l'association</h2>
-
-        <p style="margin-top:8px;color:#718078;font-size:13px;line-height:1.5;">
-
-            Les Paniers Solidaires Nord Alpilles
-
-        </p>
-
-        <div class="info" style="margin-top:18px;">
-
-            📞 04 90 39 70 31<br><br>
-
-            ✉️ drazik.paniersolidaires@gmail.com<br><br>
+            <br><br>
 
             📍 35 boulevard Léon Gambetta<br>
             Châteaurenard
 
         </div>
 
-        <div class="cardButtons">
 
-            <button class="btn btnGreen"
-                    onclick="callAssociation()">
+        <div class="buttons">
+
+            <button
+                class="btn btn-green"
+                onclick="window.location.href='tel:0490397031'"
+            >
 
                 📞 Appeler
 
             </button>
 
-            <button class="btn btnLight"
-                    onclick="openMaps('35 boulevard Léon Gambetta Châteaurenard')">
+
+            <button
+                class="btn btn-light"
+                onclick="openMaps('35 boulevard Léon Gambetta Châteaurenard')"
+            >
 
                 📍 Itinéraire
 
@@ -1747,58 +2331,127 @@ textarea{
 </div>
 
 
+<!-- =========================
+     LOADING
+========================= -->
+
+<div id="loading" class="loading">
+
+    <div class="loader-box">
+
+        <div class="spinner"></div>
+
+        <strong>
+            Envoi de votre demande...
+        </strong>
+
+        <p>
+            Génération du document PDF
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     TOAST
+========================= -->
+
+<div id="toast" class="toast"></div>
+
+
 <script>
 
-/* NAVIGATION */
+/*
+====================================================
+ CONFIGURATION
+====================================================
 
-function showSection(id,button){
+Après création du Google Apps Script,
+colle ici l'URL Web App.
 
-    document.querySelectorAll('.section').forEach(section=>{
-        section.classList.remove('active');
-    });
+Exemple :
 
-    const target=document.getElementById(id);
+const SCRIPT_URL =
+"https://script.google.com/macros/s/XXXXXXXX/exec";
+
+====================================================
+*/
+
+const SCRIPT_URL = "";
+
+
+/* EMAIL DESTINATAIRE */
+
+const DESTINATAIRE =
+"martos.gaetan60210@icloud.com";
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function showSection(id, button){
+
+    document
+        .querySelectorAll(".section")
+        .forEach(section=>{
+            section.classList.remove("active");
+        });
+
+    const target =
+        document.getElementById(id);
 
     if(target){
-        target.classList.add('active');
+        target.classList.add("active");
     }
 
-    document.querySelectorAll('.navItem').forEach(item=>{
-        item.classList.remove('active');
-    });
+    document
+        .querySelectorAll(".nav-item")
+        .forEach(item=>{
+            item.classList.remove("active");
+        });
 
     if(button){
-        button.classList.add('active');
+        button.classList.add("active");
     }
 
     window.scrollTo({
         top:0,
-        behavior:'smooth'
+        behavior:"smooth"
     });
+
 }
 
 
-/* TOAST */
+/* =========================
+   TOAST
+========================= */
 
 function showToast(message){
 
-    const toast=document.getElementById('toast');
+    const toast =
+        document.getElementById("toast");
 
-    toast.textContent=message;
+    toast.textContent = message;
 
-    toast.classList.add('show');
+    toast.classList.add("show");
 
     setTimeout(()=>{
-        toast.classList.remove('show');
-    },3000);
+        toast.classList.remove("show");
+    },3200);
+
 }
 
 
-/* MAPS */
+/* =========================
+   MAPS
+========================= */
 
 function openMaps(place){
 
-    const url=
+    const url =
         "https://www.google.com/maps/search/?api=1&query="+
         encodeURIComponent(place);
 
@@ -1807,69 +2460,71 @@ function openMaps(place){
 }
 
 
-/* TELEPHONE */
-
-function callAssociation(){
-
-    window.location.href="tel:0490397031";
-
-}
-
-
-/* CONTACT MODAL */
+/* =========================
+   CONTACT
+========================= */
 
 function openContact(){
 
-    document.getElementById('contactModal')
-        .classList.add('show');
+    document
+        .getElementById("contactModal")
+        .classList.add("show");
 
 }
 
 function closeContact(){
 
-    document.getElementById('contactModal')
-        .classList.remove('show');
+    document
+        .getElementById("contactModal")
+        .classList.remove("show");
+
+}
+
+function closeModalOutside(event){
+
+    if(event.target.id === "contactModal"){
+        closeContact();
+    }
 
 }
 
 
-/* CALCUL RESTE A VIVRE */
+/* =========================
+   CALCUL RESTE À VIVRE
+========================= */
 
-function calculate(){
+function calculateReste(){
 
-    const ressources=
-        parseFloat(document.getElementById('ressources').value)||0;
+    const ressources =
+        parseFloat(
+            document.getElementById("ressources").value
+        ) || 0;
 
-    const charges=
-        parseFloat(document.getElementById('charges').value)||0;
+    const charges =
+        parseFloat(
+            document.getElementById("charges").value
+        ) || 0;
 
-    const personnes=
-        parseInt(document.getElementById('personnes').value)||1;
+    const reste =
+        ressources - charges;
 
-    const reste=ressources-charges;
-
-    const parJour=
-        reste/(personnes*30);
-
-    document.getElementById('resultat')
-        .textContent=
-        reste.toLocaleString('fr-FR',{
+    document.getElementById("resultat")
+        .textContent =
+        reste.toLocaleString("fr-FR",{
             minimumFractionDigits:2,
             maximumFractionDigits:2
         })+" €";
 
-    if(reste<0){
+    if(reste < 0){
 
         showToast(
-            "Attention : les charges dépassent les ressources."
+            "Attention : vos charges dépassent vos ressources."
         );
 
     }else{
 
         showToast(
-            "Estimation calculée : "+
-            parJour.toFixed(2)+
-            " € / jour / personne"
+            "Reste à vivre calculé."
         );
 
     }
@@ -1877,59 +2532,419 @@ function calculate(){
 }
 
 
-/* FORMULAIRE BENEFICIAIRE */
+/* =========================
+   UTILITAIRE
+========================= */
 
-function submitBeneficiaire(){
+function value(id){
 
-    const nom=
-        document.getElementById('nom').value.trim();
+    const element =
+        document.getElementById(id);
 
-    const prenom=
-        document.getElementById('prenom').value.trim();
+    return element
+        ? element.value.trim()
+        : "";
 
-    const telephone=
-        document.getElementById('telephone').value.trim();
+}
 
-    const email=
-        document.getElementById('email').value.trim();
 
-    if(!nom || !prenom || !telephone || !email){
+/* =========================
+   VALIDATION
+========================= */
+
+function validateForm(){
+
+    const required = [
+
+        ["nom","Nom"],
+        ["prenom","Prénom"],
+        ["telephone","Téléphone"],
+        ["email","Email"],
+        ["adresse","Adresse"],
+        ["cp","Code postal"],
+        ["ville","Ville"]
+
+    ];
+
+    for(const item of required){
+
+        if(!value(item[0])){
+
+            showToast(
+                "Veuillez renseigner : "+item[1]
+            );
+
+            document
+                .getElementById(item[0])
+                .focus();
+
+            return false;
+        }
+
+    }
+
+
+    const email =
+        value("email");
+
+    const emailRegex =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!emailRegex.test(email)){
+
+        showToast(
+            "Veuillez renseigner une adresse email valide."
+        );
+
+        document
+            .getElementById("email")
+            .focus();
+
+        return false;
+    }
+
+
+    return true;
+
+}
+
+
+/* =========================
+   ENVOI DEMANDE
+========================= */
+
+async function envoyerDemande(){
+
+    if(!validateForm()){
+        return;
+    }
+
+
+    if(!SCRIPT_URL){
+
+        showToast(
+            "Le service d'envoi PDF doit encore être connecté."
+        );
+
+        return;
+    }
+
+
+    const ressources =
+        parseFloat(value("ressources")) || 0;
+
+    const charges =
+        parseFloat(value("charges")) || 0;
+
+    const reste =
+        ressources - charges;
+
+
+    const data = {
+
+        action:"beneficiaire",
+
+        destinataire:DESTINATAIRE,
+
+        date:
+            new Date().toLocaleString("fr-FR"),
+
+        nom:value("nom"),
+
+        prenom:value("prenom"),
+
+        telephone:value("telephone"),
+
+        email:value("email"),
+
+        adresse:value("adresse"),
+
+        cp:value("cp"),
+
+        ville:value("ville"),
+
+        adultes:value("adultes"),
+
+        enfants:value("enfants"),
+
+        personnes:value("personnes"),
+
+        ressources:ressources,
+
+        charges:charges,
+
+        resteAVivre:reste,
+
+        message:value("message")
+
+    };
+
+
+    document
+        .getElementById("loading")
+        .classList.add("show");
+
+
+    try{
+
+        const response =
+            await fetch(
+                SCRIPT_URL,
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "text/plain;charset=utf-8"
+                    },
+
+                    body:JSON.stringify(data)
+
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if(result.success){
+
+            document
+                .getElementById("formContainer")
+                .style.display="none";
+
+            document
+                .getElementById("successBox")
+                .classList.add("show");
+
+            showToast(
+                "Demande envoyée avec succès."
+            );
+
+        }else{
+
+            throw new Error(
+                result.message ||
+                "Erreur lors de l'envoi."
+            );
+
+        }
+
+    }catch(error){
+
+        console.error(error);
+
+        showToast(
+            "Impossible d'envoyer la demande. Vérifiez la connexion."
+        );
+
+    }finally{
+
+        document
+            .getElementById("loading")
+            .classList.remove("show");
+
+    }
+
+}
+
+
+/* =========================
+   PARTENAIRE
+========================= */
+
+function envoyerPartenaire(){
+
+    const entreprise =
+        value("entreprise");
+
+    const contact =
+        value("contact");
+
+    const email =
+        value("emailPartenaire");
+
+    const message =
+        value("messagePartenaire");
+
+
+    if(!entreprise || !contact || !email){
 
         showToast(
             "Veuillez compléter les champs obligatoires."
         );
 
         return;
+
     }
 
-    showToast(
-        "Votre demande a été préparée. L'association pourra vous recontacter."
-    );
+
+    if(!SCRIPT_URL){
+
+        showToast(
+            "Le service d'envoi doit encore être connecté."
+        );
+
+        return;
+
+    }
+
+
+    const data={
+
+        action:"partenaire",
+
+        destinataire:DESTINATAIRE,
+
+        date:
+            new Date().toLocaleString("fr-FR"),
+
+        entreprise:entreprise,
+
+        contact:contact,
+
+        email:email,
+
+        type:value("typePartenaire"),
+
+        message:message
+
+    };
+
+
+    document
+        .getElementById("loading")
+        .classList.add("show");
+
+
+    fetch(
+        SCRIPT_URL,
+        {
+            method:"POST",
+
+            headers:{
+                "Content-Type":
+                    "text/plain;charset=utf-8"
+            },
+
+            body:JSON.stringify(data)
+
+        }
+    )
+    .then(response=>response.json())
+
+    .then(result=>{
+
+        if(result.success){
+
+            showToast(
+                "Votre demande a bien été envoyée."
+            );
+
+            document
+                .getElementById("entreprise")
+                .value="";
+
+            document
+                .getElementById("contact")
+                .value="";
+
+            document
+                .getElementById("emailPartenaire")
+                .value="";
+
+            document
+                .getElementById("messagePartenaire")
+                .value="";
+
+        }else{
+
+            throw new Error(
+                result.message
+            );
+
+        }
+
+    })
+
+    .catch(error=>{
+
+        console.error(error);
+
+        showToast(
+            "Erreur lors de l'envoi."
+        );
+
+    })
+
+    .finally(()=>{
+
+        document
+            .getElementById("loading")
+            .classList.remove("show");
+
+    });
 
 }
 
 
-/* CLICK OUTSIDE MODAL */
+/* =========================
+   RESET
+========================= */
 
-document.getElementById('contactModal')
-.addEventListener('click',function(e){
+function resetForm(){
 
-    if(e.target===this){
-        closeContact();
+    document
+        .getElementById("formContainer")
+        .style.display="block";
+
+    document
+        .getElementById("successBox")
+        .classList.remove("show");
+
+    document
+        .querySelectorAll(
+            "#formContainer input, #formContainer textarea"
+        )
+        .forEach(element=>{
+
+            if(element.id === "adultes"){
+                element.value="1";
+            }
+            else if(
+                element.id === "enfants" ||
+                element.id === "personnes"
+            ){
+                element.value="0";
+            }
+            else{
+                element.value="";
+            }
+
+        });
+
+    document
+        .getElementById("resultat")
+        .textContent="0,00 €";
+
+}
+
+
+/* =========================
+   DEMARRAGE
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    ()=>{
+
+        console.log(
+            "Les Paniers Solidaires - Application"
+        );
+
     }
-
-});
-
-
-/* INITIALISATION */
-
-document.addEventListener('DOMContentLoaded',()=>{
-
-    console.log(
-        "Les Paniers Solidaires - Application"
-    );
-
-});
+);
 
 </script>
 
