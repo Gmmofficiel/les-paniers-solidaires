@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-
 <html lang="fr">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
 <meta name="theme-color" content="#16834a">
-<meta name="description" content="Les Paniers Solidaires - Épicerie solidaire">
+
+<meta name="description"
+      content="Les Paniers Solidaires - Épicerie solidaire">
 
 <title>Les Paniers Solidaires</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -57,9 +64,20 @@ button{
     position:relative;
     padding:24px 20px 28px;
     color:white;
+
     background:
-        radial-gradient(circle at 90% 10%,rgba(255,255,255,.20),transparent 28%),
-        linear-gradient(135deg,#0d6f3d,#159653,#20ad66);
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(255,255,255,.20),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #0d6f3d,
+            #159653,
+            #20ad66
+        );
+
     border-radius:0 0 30px 30px;
     overflow:hidden;
 }
@@ -153,14 +171,17 @@ button{
 }
 
 @keyframes fadeIn{
+
     from{
         opacity:0;
         transform:translateY(7px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
+
 }
 
 .section-title{
@@ -389,7 +410,7 @@ textarea{
     border:1px solid #dce8e0;
     background:#f9fcfa;
     border-radius:13px;
-    padding:13px 13px;
+    padding:13px;
     outline:none;
     color:#1d2a22;
     transition:.2s;
@@ -472,6 +493,10 @@ textarea{
     transform:scale(.98);
 }
 
+.btn:disabled{
+    cursor:not-allowed;
+}
+
 .btn + .btn{
     margin-top:9px;
 }
@@ -505,7 +530,7 @@ textarea{
 }
 
 /* =========================
-   MOBILE
+   ITINERANTE
 ========================= */
 
 .route-list{
@@ -701,9 +726,19 @@ textarea{
 }
 
 @keyframes spin{
+
     to{
         transform:rotate(360deg);
     }
+
+}
+
+/* =========================
+   FORMULAIRE INVISIBLE
+========================= */
+
+#sendFrame{
+    display:none;
 }
 
 /* =========================
@@ -726,7 +761,9 @@ textarea{
         border-radius:20px;
         width:calc(100% - 30px);
     }
+
 }
+
 </style>
 
 </head>
@@ -741,31 +778,42 @@ textarea{
 
 <header class="header">
 
-```
-<div class="logo-row">
+    <div class="logo-row">
 
-    <div class="logo">
-        🧺
+        <div class="logo">
+            🧺
+        </div>
+
+        <div class="brand">
+
+            <h1>
+                Les Paniers Solidaires
+            </h1>
+
+            <p>
+                Épicerie solidaire
+            </p>
+
+        </div>
+
     </div>
 
-    <div class="brand">
-        <h1>Les Paniers Solidaires</h1>
-        <p>Épicerie solidaire</p>
+    <div class="header-title">
+
+        <h2>
+            Bienvenue 👋
+        </h2>
+
+        <p>
+            Retrouvez toutes les informations de
+            l'épicerie solidaire directement depuis
+            votre téléphone.
+        </p>
+
     </div>
-
-</div>
-
-<div class="header-title">
-    <h2>Bienvenue 👋</h2>
-    <p>
-        Retrouvez toutes les informations de
-        l'épicerie solidaire directement depuis
-        votre téléphone.
-    </p>
-</div>
-```
 
 </header>
+
 
 <main class="content">
 
@@ -775,107 +823,200 @@ textarea{
 
 <section id="home" class="section active">
 
-```
-<div class="section-title">
-    <h2>Que souhaitez-vous faire ?</h2>
-    <p>Accédez rapidement aux services de l'association.</p>
-</div>
+    <div class="section-title">
+
+        <h2>
+            Que souhaitez-vous faire ?
+        </h2>
+
+        <p>
+            Accédez rapidement aux services de l'association.
+        </p>
+
+    </div>
 
 
-<div class="quick-grid">
+    <div class="quick-grid">
 
-    <button class="quick" onclick="showSection('beneficiaire')">
-        <span class="emoji">🤝</span>
-        <strong>Devenir bénéficiaire</strong>
-        <span>Faire une demande d'accès</span>
-    </button>
+        <button
+            class="quick"
+            onclick="showSection('beneficiaire')"
+        >
 
-
-    <button class="quick" onclick="showSection('epiceries')">
-        <span class="emoji">🛒</span>
-        <strong>Nos épiceries</strong>
-        <span>Découvrir nos points d'accueil</span>
-    </button>
-
-
-    <button class="quick" onclick="showSection('mobile')">
-        <span class="emoji">🚐</span>
-        <strong>Épicerie itinérante</strong>
-        <span>Voir les informations</span>
-    </button>
-
-
-    <button class="quick" onclick="showSection('don')">
-        <span class="emoji">💚</span>
-        <strong>Faire un don</strong>
-        <span>Soutenir l'association</span>
-    </button>
-
-
-    <button class="quick" onclick="showSection('partenaire')">
-        <span class="emoji">🤝</span>
-        <strong>Devenir partenaire</strong>
-        <span>Nous accompagner</span>
-    </button>
-
-
-    <button class="quick" onclick="showSection('contact')">
-        <span class="emoji">📞</span>
-        <strong>Nous contacter</strong>
-        <span>Une question ?</span>
-    </button>
-
-</div>
-
-
-<div class="card">
-
-    <div class="card-icon">📰</div>
-
-    <h3>Actualités</h3>
-
-    <div class="news">
-
-        <div class="news-date">
-            INFO
-        </div>
-
-        <div class="news-text">
+            <span class="emoji">
+                🤝
+            </span>
 
             <strong>
-                Retrouvez les informations de l'association
+                Devenir bénéficiaire
             </strong>
 
             <span>
-                Consultez régulièrement l'application
-                pour connaître les nouveautés et
-                informations importantes.
+                Faire une demande d'accès
             </span>
+
+        </button>
+
+
+        <button
+            class="quick"
+            onclick="showSection('epiceries')"
+        >
+
+            <span class="emoji">
+                🛒
+            </span>
+
+            <strong>
+                Nos épiceries
+            </strong>
+
+            <span>
+                Découvrir nos points d'accueil
+            </span>
+
+        </button>
+
+
+        <button
+            class="quick"
+            onclick="showSection('mobile')"
+        >
+
+            <span class="emoji">
+                🚐
+            </span>
+
+            <strong>
+                Épicerie itinérante
+            </strong>
+
+            <span>
+                Voir les informations
+            </span>
+
+        </button>
+
+
+        <button
+            class="quick"
+            onclick="showSection('don')"
+        >
+
+            <span class="emoji">
+                💚
+            </span>
+
+            <strong>
+                Faire un don
+            </strong>
+
+            <span>
+                Soutenir l'association
+            </span>
+
+        </button>
+
+
+        <button
+            class="quick"
+            onclick="showSection('partenaire')"
+        >
+
+            <span class="emoji">
+                🤝
+            </span>
+
+            <strong>
+                Devenir partenaire
+            </strong>
+
+            <span>
+                Nous accompagner
+            </span>
+
+        </button>
+
+
+        <button
+            class="quick"
+            onclick="showSection('contact')"
+        >
+
+            <span class="emoji">
+                📞
+            </span>
+
+            <strong>
+                Nous contacter
+            </strong>
+
+            <span>
+                Une question ?
+            </span>
+
+        </button>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-icon">
+            📰
+        </div>
+
+        <h3>
+            Actualités
+        </h3>
+
+        <div class="news">
+
+            <div class="news-date">
+                INFO
+            </div>
+
+            <div class="news-text">
+
+                <strong>
+                    Retrouvez les informations de l'association
+                </strong>
+
+                <span>
+                    Consultez régulièrement l'application
+                    pour connaître les nouveautés et
+                    informations importantes.
+                </span>
+
+            </div>
 
         </div>
 
     </div>
 
-</div>
 
+    <div class="donation-box">
 
-<div class="donation-box">
+        <h3>
+            Un geste peut aider 💚
+        </h3>
 
-    <h3>Un geste peut aider 💚</h3>
+        <p>
+            Votre soutien permet d'accompagner les
+            personnes qui en ont besoin.
+        </p>
 
-    <p>
-        Votre soutien permet d'accompagner les
-        personnes qui en ont besoin.
-    </p>
+        <button
+            class="btn"
+            onclick="showSection('don')"
+        >
+            Soutenir Les Paniers Solidaires
+        </button>
 
-    <button class="btn" onclick="showSection('don')">
-        Soutenir Les Paniers Solidaires
-    </button>
-
-</div>
-```
+    </div>
 
 </section>
+
 
 <!-- =========================
      EPICERIES
@@ -883,88 +1024,111 @@ textarea{
 
 <section id="epiceries" class="section">
 
-```
-<div class="section-title">
+    <div class="section-title">
 
-    <h2>Nos épiceries 🛒</h2>
+        <h2>
+            Nos épiceries 🛒
+        </h2>
 
-    <p>
-        Découvrez les différents points
-        d'accueil des Paniers Solidaires.
-    </p>
-
-</div>
-
-
-<div class="card location-card">
-
-    <div class="location-top">
-
-        <div class="location-icon">
-            🏪
-        </div>
-
-        <div>
-            <h3>Barbentane</h3>
-            <small>Épicerie solidaire</small>
-        </div>
+        <p>
+            Découvrez les différents points
+            d'accueil des Paniers Solidaires.
+        </p>
 
     </div>
 
-    <div class="location-info">
-        Retrouvez les informations d'accueil
-        auprès de l'association.
-    </div>
 
-</div>
+    <div class="card location-card">
 
+        <div class="location-top">
 
-<div class="card location-card">
+            <div class="location-icon">
+                🏪
+            </div>
 
-    <div class="location-top">
+            <div>
 
-        <div class="location-icon">
-            🏪
+                <h3>
+                    Barbentane
+                </h3>
+
+                <small>
+                    Épicerie solidaire
+                </small>
+
+            </div>
+
         </div>
 
-        <div>
-            <h3>Châteaurenard</h3>
-            <small>Épicerie solidaire</small>
+        <div class="location-info">
+
+            Retrouvez les informations d'accueil
+            auprès de l'association.
+
         </div>
 
     </div>
 
-    <div class="location-info">
-        35 boulevard Léon Gambetta<br>
-        Châteaurenard
+
+    <div class="card location-card">
+
+        <div class="location-top">
+
+            <div class="location-icon">
+                🏪
+            </div>
+
+            <div>
+
+                <h3>
+                    Châteaurenard
+                </h3>
+
+                <small>
+                    Épicerie solidaire
+                </small>
+
+            </div>
+
+        </div>
+
+        <div class="location-info">
+
+            35 boulevard Léon Gambetta<br>
+            Châteaurenard
+
+        </div>
+
     </div>
 
-</div>
 
+    <div class="card">
 
-<div class="card">
+        <div class="card-icon">
+            🚐
+        </div>
 
-    <div class="card-icon">🚐</div>
+        <h3>
+            Épicerie itinérante
+        </h3>
 
-    <h3>Épicerie itinérante</h3>
+        <p>
+            Un service mobile permettant d'aller
+            au plus près des personnes accompagnées.
+        </p>
 
-    <p>
-        Un service mobile permettant d'aller
-        au plus près des personnes accompagnées.
-    </p>
+        <button
+            class="btn btn-secondary"
+            style="margin-top:15px"
+            onclick="showSection('mobile')"
+        >
+            Découvrir
+        </button>
 
-    <button
-        class="btn btn-secondary"
-        style="margin-top:15px"
-        onclick="showSection('mobile')"
-    >
-        Découvrir
-    </button>
-
-</div>
-```
+    </div>
 
 </section>
+
 
 <!-- =========================
      BENEFICIAIRE
@@ -972,177 +1136,238 @@ textarea{
 
 <section id="beneficiaire" class="section">
 
-```
-<div class="section-title">
+    <div class="section-title">
 
-    <h2>Devenir bénéficiaire 🤝</h2>
+        <h2>
+            Devenir bénéficiaire 🤝
+        </h2>
 
-    <p>
-        Remplissez ce formulaire afin de transmettre
-        votre demande à l'association.
-    </p>
-
-</div>
-
-
-<form id="beneficiaireForm" class="form-card">
-
-    <div class="form-section">
-
-        <div class="form-section-title">
-            <span class="number">1</span>
-            Identité
-        </div>
-
-
-        <div class="row">
-
-            <div class="field">
-                <label>Nom *</label>
-                <input
-                    type="text"
-                    id="nom"
-                    required
-                    autocomplete="family-name"
-                    placeholder="Votre nom"
-                >
-            </div>
-
-
-            <div class="field">
-                <label>Prénom *</label>
-                <input
-                    type="text"
-                    id="prenom"
-                    required
-                    autocomplete="given-name"
-                    placeholder="Votre prénom"
-                >
-            </div>
-
-        </div>
-
-
-        <div class="field">
-
-            <label>Téléphone *</label>
-
-            <input
-                type="tel"
-                id="telephone"
-                required
-                autocomplete="tel"
-                placeholder="06 00 00 00 00"
-            >
-
-        </div>
-
-
-        <div class="field">
-
-            <label>Email</label>
-
-            <input
-                type="email"
-                id="email"
-                autocomplete="email"
-                placeholder="votre@email.fr"
-            >
-
-        </div>
+        <p>
+            Remplissez ce formulaire afin de transmettre
+            votre demande à l'association.
+        </p>
 
     </div>
 
 
-    <div class="form-section">
+    <form
+        id="beneficiaireForm"
+        class="form-card"
+    >
 
-        <div class="form-section-title">
-            <span class="number">2</span>
-            Coordonnées
-        </div>
+        <div class="form-section">
 
+            <div class="form-section-title">
 
-        <div class="field">
+                <span class="number">
+                    1
+                </span>
 
-            <label>Adresse *</label>
+                Identité
 
-            <input
-                type="text"
-                id="adresse"
-                required
-                placeholder="Votre adresse"
-            >
-
-        </div>
+            </div>
 
 
-        <div class="row">
+            <div class="row">
+
+                <div class="field">
+
+                    <label>
+                        Nom *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nom"
+                        required
+                        autocomplete="family-name"
+                        placeholder="Votre nom"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Prénom *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="prenom"
+                        required
+                        autocomplete="given-name"
+                        placeholder="Votre prénom"
+                    >
+
+                </div>
+
+            </div>
+
 
             <div class="field">
 
-                <label>Code postal *</label>
+                <label>
+                    Téléphone *
+                </label>
+
+                <input
+                    type="tel"
+                    id="telephone"
+                    required
+                    autocomplete="tel"
+                    placeholder="06 00 00 00 00"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    autocomplete="email"
+                    placeholder="votre@email.fr"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-section">
+
+            <div class="form-section-title">
+
+                <span class="number">
+                    2
+                </span>
+
+                Coordonnées
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Adresse *
+                </label>
 
                 <input
                     type="text"
-                    id="cp"
+                    id="adresse"
                     required
-                    inputmode="numeric"
-                    placeholder="00000"
+                    placeholder="Votre adresse"
                 >
 
             </div>
 
 
-            <div class="field">
+            <div class="row">
 
-                <label>Ville *</label>
+                <div class="field">
 
-                <input
-                    type="text"
-                    id="ville"
-                    required
-                    placeholder="Votre ville"
-                >
+                    <label>
+                        Code postal *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="cp"
+                        required
+                        inputmode="numeric"
+                        placeholder="00000"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Ville *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="ville"
+                        required
+                        placeholder="Votre ville"
+                    >
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+
+        <div class="form-section">
+
+            <div class="form-section-title">
+
+                <span class="number">
+                    3
+                </span>
+
+                Situation familiale
+
+            </div>
 
 
-    <div class="form-section">
+            <div class="row">
 
-        <div class="form-section-title">
-            <span class="number">3</span>
-            Situation familiale
-        </div>
+                <div class="field">
+
+                    <label>
+                        Adultes dans le foyer *
+                    </label>
+
+                    <input
+                        type="number"
+                        id="adultes"
+                        min="0"
+                        required
+                        value="1"
+                    >
+
+                </div>
 
 
-        <div class="row">
+                <div class="field">
 
-            <div class="field">
+                    <label>
+                        Enfants à charge
+                    </label>
 
-                <label>Adultes dans le foyer *</label>
+                    <input
+                        type="number"
+                        id="enfants"
+                        min="0"
+                        value="0"
+                    >
 
-                <input
-                    type="number"
-                    id="adultes"
-                    min="0"
-                    required
-                    value="1"
-                >
+                </div>
 
             </div>
 
 
             <div class="field">
 
-                <label>Enfants à charge</label>
+                <label>
+                    Personnes à charge
+                </label>
 
                 <input
                     type="number"
-                    id="enfants"
+                    id="personnes"
                     min="0"
                     value="0"
                 >
@@ -1152,144 +1377,157 @@ textarea{
         </div>
 
 
-        <div class="field">
+        <div class="form-section">
 
-            <label>Personnes à charge</label>
+            <div class="form-section-title">
 
-            <input
-                type="number"
-                id="personnes"
-                min="0"
-                value="0"
-            >
+                <span class="number">
+                    4
+                </span>
 
-        </div>
+                Situation financière
 
-    </div>
-
-
-    <div class="form-section">
-
-        <div class="form-section-title">
-            <span class="number">4</span>
-            Situation financière
-        </div>
-
-
-        <div class="field">
-
-            <label>Ressources mensuelles (€)</label>
-
-            <input
-                type="number"
-                id="ressources"
-                min="0"
-                step="0.01"
-                placeholder="Ex : 1200"
-            >
-
-        </div>
-
-
-        <div class="field">
-
-            <label>Charges mensuelles (€)</label>
-
-            <input
-                type="number"
-                id="charges"
-                min="0"
-                step="0.01"
-                placeholder="Ex : 800"
-            >
-
-        </div>
-
-
-        <div class="calculator">
-
-            <div class="calculator-title">
-                RESTE À VIVRE ESTIMÉ
             </div>
+
+
+            <div class="field">
+
+                <label>
+                    Ressources mensuelles (€)
+                </label>
+
+                <input
+                    type="number"
+                    id="ressources"
+                    min="0"
+                    step="0.01"
+                    placeholder="Ex : 1200"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Charges mensuelles (€)
+                </label>
+
+                <input
+                    type="number"
+                    id="charges"
+                    min="0"
+                    step="0.01"
+                    placeholder="Ex : 800"
+                >
+
+            </div>
+
+
+            <div class="calculator">
+
+                <div class="calculator-title">
+                    RESTE À VIVRE ESTIMÉ
+                </div>
+
+                <div
+                    class="result"
+                    id="resteResult"
+                >
+                    0,00 €
+                </div>
+
+                <div class="result-label">
+                    Ressources - charges
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-section">
+
+            <div class="form-section-title">
+
+                <span class="number">
+                    5
+                </span>
+
+                Informations complémentaires
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Votre message
+                </label>
+
+                <textarea
+                    id="message"
+                    placeholder="Vous pouvez ajouter toute information utile à votre demande..."
+                ></textarea>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-section">
+
+            <div class="form-section-title">
+
+                <span class="number">
+                    6
+                </span>
+
+                Transmission
+
+            </div>
+
+
+            <p style="
+                font-size:12px;
+                color:#738078;
+                line-height:1.55;
+                margin-bottom:14px;
+            ">
+
+                En envoyant ce formulaire, votre demande
+                sera transmise automatiquement à
+                l'association.
+
+            </p>
+
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+                id="beneficiaireButton"
+            >
+                📩 Envoyer ma demande
+            </button>
+
 
             <div
-                class="result"
-                id="resteResult"
+                class="loader"
+                id="beneficiaireLoader"
             >
-                0,00 €
+
+                <div class="spinner"></div>
+
+                Transmission de votre demande...
+
             </div>
 
-            <div class="result-label">
-                Ressources - charges
-            </div>
-
         </div>
 
-    </div>
-
-
-    <div class="form-section">
-
-        <div class="form-section-title">
-            <span class="number">5</span>
-            Informations complémentaires
-        </div>
-
-
-        <div class="field">
-
-            <label>Votre message</label>
-
-            <textarea
-                id="message"
-                placeholder="Vous pouvez ajouter toute information utile à votre demande..."
-            ></textarea>
-
-        </div>
-
-    </div>
-
-
-    <div class="form-section">
-
-        <div class="form-section-title">
-            <span class="number">6</span>
-            Transmission
-        </div>
-
-        <p style="
-            font-size:12px;
-            color:#738078;
-            line-height:1.55;
-            margin-bottom:14px;
-        ">
-            En envoyant ce formulaire, votre demande
-            sera transmise automatiquement à
-            l'association.
-        </p>
-
-        <button
-            type="submit"
-            class="btn btn-primary"
-            id="beneficiaireButton"
-        >
-            📩 Envoyer ma demande
-        </button>
-
-        <div
-            class="loader"
-            id="beneficiaireLoader"
-        >
-            <div class="spinner"></div>
-            Transmission de votre demande...
-        </div>
-
-    </div>
-
-</form>
-```
+    </form>
 
 </section>
+
 
 <!-- =========================
      ITINERANTE
@@ -1297,70 +1535,98 @@ textarea{
 
 <section id="mobile" class="section">
 
-```
-<div class="section-title">
+    <div class="section-title">
 
-    <h2>Épicerie itinérante 🚐</h2>
+        <h2>
+            Épicerie itinérante 🚐
+        </h2>
 
-    <p>
-        Un service mobile pour aller au plus
-        près des bénéficiaires.
-    </p>
-
-</div>
-
-
-<div class="card">
-
-    <div class="card-icon">🚐</div>
-
-    <h3>Un service au plus près</h3>
-
-    <p>
-        L'épicerie itinérante permet de proposer
-        un accompagnement et des produits
-        directement dans différents secteurs.
-    </p>
-
-</div>
-
-
-<div class="section-title" style="margin-top:24px">
-
-    <h2>Informations</h2>
-
-</div>
-
-
-<div class="route-list">
-
-    <div class="route">
-
-        <div class="route-day">📍</div>
-
-        <div>
-            <strong>Barbentane</strong>
-            <span>Consultez l'association pour les horaires.</span>
-        </div>
+        <p>
+            Un service mobile pour aller au plus
+            près des bénéficiaires.
+        </p>
 
     </div>
 
 
-    <div class="route">
+    <div class="card">
 
-        <div class="route-day">📍</div>
-
-        <div>
-            <strong>Châteaurenard</strong>
-            <span>Consultez l'association pour les horaires.</span>
+        <div class="card-icon">
+            🚐
         </div>
+
+        <h3>
+            Un service au plus près
+        </h3>
+
+        <p>
+            L'épicerie itinérante permet de proposer
+            un accompagnement et des produits
+            directement dans différents secteurs.
+        </p>
 
     </div>
 
-</div>
-```
+
+    <div
+        class="section-title"
+        style="margin-top:24px"
+    >
+
+        <h2>
+            Informations
+        </h2>
+
+    </div>
+
+
+    <div class="route-list">
+
+        <div class="route">
+
+            <div class="route-day">
+                📍
+            </div>
+
+            <div>
+
+                <strong>
+                    Barbentane
+                </strong>
+
+                <span>
+                    Consultez l'association pour les horaires.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="route">
+
+            <div class="route-day">
+                📍
+            </div>
+
+            <div>
+
+                <strong>
+                    Châteaurenard
+                </strong>
+
+                <span>
+                    Consultez l'association pour les horaires.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
+
 
 <!-- =========================
      DON
@@ -1368,55 +1634,65 @@ textarea{
 
 <section id="don" class="section">
 
-```
-<div class="section-title">
+    <div class="section-title">
 
-    <h2>Faire un don 💚</h2>
+        <h2>
+            Faire un don 💚
+        </h2>
 
-    <p>
-        Chaque soutien contribue aux actions
-        de l'association.
-    </p>
+        <p>
+            Chaque soutien contribue aux actions
+            de l'association.
+        </p>
 
-</div>
+    </div>
 
 
-<div class="donation-box">
+    <div class="donation-box">
 
-    <h3>Votre aide compte</h3>
+        <h3>
+            Votre aide compte
+        </h3>
 
-    <p>
-        Un don financier, alimentaire ou matériel
-        peut participer directement au fonctionnement
-        de l'épicerie solidaire.
-    </p>
+        <p>
+            Un don financier, alimentaire ou matériel
+            peut participer directement au fonctionnement
+            de l'épicerie solidaire.
+        </p>
 
-    <button
-        class="btn"
-        onclick="showToast('Merci pour votre soutien 💚','success')"
+        <button
+            class="btn"
+            onclick="showToast('Merci pour votre soutien 💚','success')"
+        >
+            💚 Je souhaite soutenir
+        </button>
+
+    </div>
+
+
+    <div
+        class="card"
+        style="margin-top:14px"
     >
-        💚 Je souhaite soutenir
-    </button>
 
-</div>
+        <div class="card-icon">
+            📦
+        </div>
 
+        <h3>
+            Dons matériels
+        </h3>
 
-<div class="card" style="margin-top:14px">
+        <p>
+            Vous souhaitez proposer des produits,
+            du matériel ou une autre forme de soutien ?
+            Contactez directement l'association.
+        </p>
 
-    <div class="card-icon">📦</div>
-
-    <h3>Dons matériels</h3>
-
-    <p>
-        Vous souhaitez proposer des produits,
-        du matériel ou une autre forme de soutien ?
-        Contactez directement l'association.
-    </p>
-
-</div>
-```
+    </div>
 
 </section>
+
 
 <!-- =========================
      PARTENAIRE
@@ -1424,135 +1700,152 @@ textarea{
 
 <section id="partenaire" class="section">
 
-```
-<div class="section-title">
+    <div class="section-title">
 
-    <h2>Devenir partenaire 🤝</h2>
+        <h2>
+            Devenir partenaire 🤝
+        </h2>
 
-    <p>
-        Entreprise, association ou organisme :
-        proposez votre aide aux Paniers Solidaires.
-    </p>
-
-</div>
-
-
-<form id="partenaireForm" class="form-card">
-
-    <div class="field">
-
-        <label>Entreprise / organisme *</label>
-
-        <input
-            type="text"
-            id="entreprise"
-            required
-            placeholder="Nom de votre structure"
-        >
+        <p>
+            Entreprise, association ou organisme :
+            proposez votre aide aux Paniers Solidaires.
+        </p>
 
     </div>
 
 
-    <div class="field">
-
-        <label>Nom du contact *</label>
-
-        <input
-            type="text"
-            id="contact"
-            required
-            placeholder="Nom et prénom"
-        >
-
-    </div>
-
-
-    <div class="field">
-
-        <label>Email *</label>
-
-        <input
-            type="email"
-            id="emailPartenaire"
-            required
-            placeholder="contact@entreprise.fr"
-        >
-
-    </div>
-
-
-    <div class="field">
-
-        <label>Type de soutien</label>
-
-        <select id="typePartenaire">
-
-            <option value="">
-                Sélectionner
-            </option>
-
-            <option value="Don financier">
-                Don financier
-            </option>
-
-            <option value="Don alimentaire">
-                Don alimentaire
-            </option>
-
-            <option value="Don matériel">
-                Don matériel
-            </option>
-
-            <option value="Mécénat">
-                Mécénat
-            </option>
-
-            <option value="Bénévolat">
-                Bénévolat
-            </option>
-
-            <option value="Autre">
-                Autre
-            </option>
-
-        </select>
-
-    </div>
-
-
-    <div class="field">
-
-        <label>Votre proposition</label>
-
-        <textarea
-            id="messagePartenaire"
-            placeholder="Expliquez-nous votre proposition..."
-        ></textarea>
-
-    </div>
-
-
-    <button
-        type="submit"
-        class="btn btn-primary"
-        id="partenaireButton"
+    <form
+        id="partenaireForm"
+        class="form-card"
     >
-        🤝 Envoyer ma proposition
-    </button>
+
+        <div class="field">
+
+            <label>
+                Entreprise / organisme *
+            </label>
+
+            <input
+                type="text"
+                id="entreprise"
+                required
+                placeholder="Nom de votre structure"
+            >
+
+        </div>
 
 
-    <div
-        class="loader"
-        id="partenaireLoader"
-    >
-        <div class="spinner"></div>
-        Transmission de votre proposition...
-    </div>
+        <div class="field">
 
-</form>
-```
+            <label>
+                Nom du contact *
+            </label>
+
+            <input
+                type="text"
+                id="contact"
+                required
+                placeholder="Nom et prénom"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Email *
+            </label>
+
+            <input
+                type="email"
+                id="emailPartenaire"
+                required
+                placeholder="contact@entreprise.fr"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Type de soutien
+            </label>
+
+            <select id="typePartenaire">
+
+                <option value="">
+                    Sélectionner
+                </option>
+
+                <option value="Don financier">
+                    Don financier
+                </option>
+
+                <option value="Don alimentaire">
+                    Don alimentaire
+                </option>
+
+                <option value="Don matériel">
+                    Don matériel
+                </option>
+
+                <option value="Mécénat">
+                    Mécénat
+                </option>
+
+                <option value="Bénévolat">
+                    Bénévolat
+                </option>
+
+                <option value="Autre">
+                    Autre
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Votre proposition
+            </label>
+
+            <textarea
+                id="messagePartenaire"
+                placeholder="Expliquez-nous votre proposition..."
+            ></textarea>
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="btn btn-primary"
+            id="partenaireButton"
+        >
+            🤝 Envoyer ma proposition
+        </button>
+
+
+        <div
+            class="loader"
+            id="partenaireLoader"
+        >
+
+            <div class="spinner"></div>
+
+            Transmission de votre proposition...
+
+        </div>
+
+    </form>
 
 </section>
+
 
 <!-- =========================
      ACTUALITÉS
@@ -1560,46 +1853,47 @@ textarea{
 
 <section id="actualites" class="section">
 
-```
-<div class="section-title">
+    <div class="section-title">
 
-    <h2>Actualités 📰</h2>
+        <h2>
+            Actualités 📰
+        </h2>
 
-    <p>
-        Les informations des Paniers Solidaires.
-    </p>
+        <p>
+            Les informations des Paniers Solidaires.
+        </p>
 
-</div>
+    </div>
 
 
-<div class="card">
+    <div class="card">
 
-    <div class="news">
+        <div class="news">
 
-        <div class="news-date">
-            🧺
-        </div>
+            <div class="news-date">
+                🧺
+            </div>
 
-        <div class="news-text">
+            <div class="news-text">
 
-            <strong>
-                Les Paniers Solidaires
-            </strong>
+                <strong>
+                    Les Paniers Solidaires
+                </strong>
 
-            <span>
-                Retrouvez prochainement les
-                actualités et informations
-                de l'association ici.
-            </span>
+                <span>
+                    Retrouvez prochainement les
+                    actualités et informations
+                    de l'association ici.
+                </span>
+
+            </div>
 
         </div>
 
     </div>
 
-</div>
-```
-
 </section>
+
 
 <!-- =========================
      ASSOCIATION
@@ -1607,51 +1901,60 @@ textarea{
 
 <section id="association" class="section">
 
-```
-<div class="section-title">
+    <div class="section-title">
 
-    <h2>L'association 💚</h2>
+        <h2>
+            L'association 💚
+        </h2>
 
-    <p>
-        Découvrez la mission des Paniers Solidaires.
-    </p>
+        <p>
+            Découvrez la mission des Paniers Solidaires.
+        </p>
 
-</div>
-
-
-<div class="card">
-
-    <div class="card-icon">🤝</div>
-
-    <h3>Notre mission</h3>
-
-    <p>
-        Les Paniers Solidaires œuvrent pour
-        accompagner les personnes et familles
-        rencontrant des difficultés, notamment
-        grâce à l'accès à une épicerie solidaire.
-    </p>
-
-</div>
+    </div>
 
 
-<div class="card">
+    <div class="card">
 
-    <div class="card-icon">💚</div>
+        <div class="card-icon">
+            🤝
+        </div>
 
-    <h3>Solidarité</h3>
+        <h3>
+            Notre mission
+        </h3>
 
-    <p>
-        L'association repose sur la solidarité,
-        l'entraide et la mobilisation des
-        bénéficiaires, bénévoles, partenaires
-        et donateurs.
-    </p>
+        <p>
+            Les Paniers Solidaires œuvrent pour
+            accompagner les personnes et familles
+            rencontrant des difficultés, notamment
+            grâce à l'accès à une épicerie solidaire.
+        </p>
 
-</div>
-```
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-icon">
+            💚
+        </div>
+
+        <h3>
+            Solidarité
+        </h3>
+
+        <p>
+            L'association repose sur la solidarité,
+            l'entraide et la mobilisation des
+            bénéficiaires, bénévoles, partenaires
+            et donateurs.
+        </p>
+
+    </div>
 
 </section>
+
 
 <!-- =========================
      CONTACT
@@ -1659,92 +1962,99 @@ textarea{
 
 <section id="contact" class="section">
 
-```
-<div class="section-title">
+    <div class="section-title">
 
-    <h2>Nous contacter 📞</h2>
+        <h2>
+            Nous contacter 📞
+        </h2>
 
-    <p>
-        Une question ? L'équipe des Paniers
-        Solidaires peut vous renseigner.
-    </p>
+        <p>
+            Une question ? L'équipe des Paniers
+            Solidaires peut vous renseigner.
+        </p>
 
-</div>
+    </div>
 
 
-<div class="card">
+    <div class="card">
 
-    <div class="contact-line">
+        <div class="contact-line">
 
-        <div class="contact-icon">
-            📍
+            <div class="contact-icon">
+                📍
+            </div>
+
+            <div>
+
+                <strong>
+                    Adresse
+                </strong>
+
+                <span>
+                    35 boulevard Léon Gambetta,
+                    Châteaurenard
+                </span>
+
+            </div>
+
         </div>
 
-        <div>
 
-            <strong>Adresse</strong>
+        <div class="contact-line">
 
-            <span>
-                35 boulevard Léon Gambetta,
-                Châteaurenard
-            </span>
+            <div class="contact-icon">
+                📞
+            </div>
+
+            <div>
+
+                <strong>
+                    Téléphone
+                </strong>
+
+                <span>
+                    04 90 39 70 31
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="contact-line">
+
+            <div class="contact-icon">
+                ✉️
+            </div>
+
+            <div>
+
+                <strong>
+                    Email
+                </strong>
+
+                <span>
+                    drazik.paniersolidaires@gmail.com
+                </span>
+
+            </div>
 
         </div>
 
     </div>
 
 
-    <div class="contact-line">
-
-        <div class="contact-icon">
-            📞
-        </div>
-
-        <div>
-
-            <strong>Téléphone</strong>
-
-            <span>
-                04 90 39 70 31
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <div class="contact-line">
-
-        <div class="contact-icon">
-            ✉️
-        </div>
-
-        <div>
-
-            <strong>Email</strong>
-
-            <span>
-                drazik.paniersolidaires@gmail.com
-            </span>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<button
-    class="btn btn-primary"
-    onclick="window.location.href='mailto:drazik.paniersolidaires@gmail.com'"
->
-    ✉️ Envoyer un email
-</button>
-```
+    <button
+        class="btn btn-primary"
+        onclick="window.location.href='mailto:drazik.paniersolidaires@gmail.com'"
+    >
+        ✉️ Envoyer un email
+    </button>
 
 </section>
 
 </main>
+
 
 <!-- =========================
      NAVIGATION
@@ -1752,69 +2062,109 @@ textarea{
 
 <nav class="bottom-nav">
 
-```
-<button
-    class="nav-btn active"
-    data-section="home"
-    onclick="showSection('home')"
->
-    <div class="nav-icon">🏠</div>
-    Accueil
-</button>
+    <button
+        class="nav-btn active"
+        data-section="home"
+        onclick="showSection('home')"
+    >
+
+        <div class="nav-icon">
+            🏠
+        </div>
+
+        Accueil
+
+    </button>
 
 
-<button
-    class="nav-btn"
-    data-section="epiceries"
-    onclick="showSection('epiceries')"
->
-    <div class="nav-icon">🛒</div>
-    Épiceries
-</button>
+    <button
+        class="nav-btn"
+        data-section="epiceries"
+        onclick="showSection('epiceries')"
+    >
+
+        <div class="nav-icon">
+            🛒
+        </div>
+
+        Épiceries
+
+    </button>
 
 
-<button
-    class="nav-btn"
-    data-section="beneficiaire"
-    onclick="showSection('beneficiaire')"
->
-    <div class="nav-icon">🤝</div>
-    Bénéficiaire
-</button>
+    <button
+        class="nav-btn"
+        data-section="beneficiaire"
+        onclick="showSection('beneficiaire')"
+    >
+
+        <div class="nav-icon">
+            🤝
+        </div>
+
+        Bénéficiaire
+
+    </button>
 
 
-<button
-    class="nav-btn"
-    data-section="don"
-    onclick="showSection('don')"
->
-    <div class="nav-icon">💚</div>
-    Soutenir
-</button>
+    <button
+        class="nav-btn"
+        data-section="don"
+        onclick="showSection('don')"
+    >
+
+        <div class="nav-icon">
+            💚
+        </div>
+
+        Soutenir
+
+    </button>
 
 
-<button
-    class="nav-btn"
-    data-section="contact"
-    onclick="showSection('contact')"
->
-    <div class="nav-icon">📞</div>
-    Contact
-</button>
-```
+    <button
+        class="nav-btn"
+        data-section="contact"
+        onclick="showSection('contact')"
+    >
+
+        <div class="nav-icon">
+            📞
+        </div>
+
+        Contact
+
+    </button>
 
 </nav>
+
+
+<!-- =========================
+     TOAST
+========================= -->
 
 <div
     id="toast"
     class="toast"
 ></div>
 
+
+<!-- =========================
+     IFRAME INVISIBLE
+========================= -->
+
+<iframe
+    name="sendFrame"
+    id="sendFrame"
+    title="Transmission"
+></iframe>
+
+
 <script>
 
 /* =====================================================
-   CONFIGURATION GOOGLE APPS SCRIPT
-   ===================================================== */
+   GOOGLE APPS SCRIPT
+===================================================== */
 
 const SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbyCl7a1LjUe5TFcHAQ5tuQ1H5nx1FnJmr59GjKadIWkfIgdZfhwkF6OmpoB-pimCktH2A/exec";
@@ -1822,7 +2172,7 @@ const SCRIPT_URL =
 
 /* =====================================================
    NAVIGATION
-   ===================================================== */
+===================================================== */
 
 function showSection(id){
 
@@ -1852,6 +2202,7 @@ function showSection(id){
 
             button.classList.remove("active");
 
+
             if(
                 button.dataset.section === id
             ){
@@ -1873,7 +2224,7 @@ function showSection(id){
 
 /* =====================================================
    TOAST
-   ===================================================== */
+===================================================== */
 
 let toastTimer;
 
@@ -1907,16 +2258,16 @@ function showToast(message,type=""){
 
 /* =====================================================
    CALCUL RESTE À VIVRE
-   ===================================================== */
+===================================================== */
 
 const ressourcesInput =
-    document.getElementById("ressources");
+document.getElementById("ressources");
 
 const chargesInput =
-    document.getElementById("charges");
+document.getElementById("charges");
 
 const resteResult =
-    document.getElementById("resteResult");
+document.getElementById("resteResult");
 
 
 function calculerReste(){
@@ -1963,21 +2314,114 @@ chargesInput.addEventListener(
 
 /* =====================================================
    DATE
-   ===================================================== */
+===================================================== */
 
 function dateActuelle(){
 
     return new Date()
-        .toLocaleString(
-            "fr-FR"
-        );
+        .toLocaleString("fr-FR");
 
 }
 
 
 /* =====================================================
-   ENVOI BÉNÉFICIAIRE
-   ===================================================== */
+   CRÉATION D'UN FORMULAIRE INVISIBLE
+===================================================== */
+
+function creerChamp(form,name,value){
+
+    const input =
+        document.createElement("input");
+
+
+    input.type =
+        "hidden";
+
+
+    input.name =
+        name;
+
+
+    input.value =
+        value ?? "";
+
+
+    form.appendChild(input);
+
+}
+
+
+/* =====================================================
+   ENVOI SÉCURISÉ SANS FETCH / CORS
+===================================================== */
+
+function envoyerVersGoogle(data){
+
+    return new Promise((resolve,reject)=>{
+
+        try{
+
+            const form =
+                document.createElement("form");
+
+
+            form.method =
+                "POST";
+
+
+            form.action =
+                SCRIPT_URL;
+
+
+            form.target =
+                "sendFrame";
+
+
+            form.style.display =
+                "none";
+
+
+            Object.keys(data)
+                .forEach(key => {
+
+                    creerChamp(
+                        form,
+                        key,
+                        data[key]
+                    );
+
+                });
+
+
+            document.body.appendChild(form);
+
+
+            form.submit();
+
+
+            setTimeout(()=>{
+
+                form.remove();
+
+                resolve(true);
+
+            },2500);
+
+
+        }catch(error){
+
+            reject(error);
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   FORMULAIRE BÉNÉFICIAIRE
+===================================================== */
 
 document
 .getElementById("beneficiaireForm")
@@ -2000,11 +2444,17 @@ document
             );
 
 
-        button.disabled = true;
+        button.disabled =
+            true;
 
-        button.style.opacity = ".6";
 
-        loader.classList.add("show");
+        button.style.opacity =
+            ".6";
+
+
+        loader.classList.add(
+            "show"
+        );
 
 
         const ressources =
@@ -2025,7 +2475,8 @@ document
 
         const data = {
 
-            action:"beneficiaire",
+            action:
+                "beneficiaire",
 
             nom:
                 document.getElementById(
@@ -2099,54 +2550,9 @@ document
 
         try{
 
-            const response =
-                await fetch(
-                    SCRIPT_URL,
-                    {
-                        method:"POST",
-                        mode:"cors",
-                        redirect:"follow",
-                        headers:{
-                            "Content-Type":
-                                "text/plain;charset=utf-8"
-                        },
-                        body:
-                            JSON.stringify(data)
-                    }
-                );
-
-
-            const text =
-                await response.text();
-
-
-            let result;
-
-
-            try{
-
-                result =
-                    JSON.parse(text);
-
-            }catch(e){
-
-                result = {
-                    success:true
-                };
-
-            }
-
-
-            if(
-                result.success === false
-            ){
-
-                throw new Error(
-                    result.message ||
-                    "Erreur lors de l'envoi."
-                );
-
-            }
+            await envoyerVersGoogle(
+                data
+            );
 
 
             showToast(
@@ -2178,19 +2584,25 @@ document
 
         }catch(error){
 
-            console.error(error);
+            console.error(
+                error
+            );
 
 
             showToast(
-                "❌ Impossible d'envoyer la demande. Vérifiez la connexion ou le déploiement Apps Script.",
+                "❌ Une erreur est survenue lors de l'envoi.",
                 "error"
             );
 
         }finally{
 
-            button.disabled = false;
+            button.disabled =
+                false;
 
-            button.style.opacity = "1";
+
+            button.style.opacity =
+                "1";
+
 
             loader.classList.remove(
                 "show"
@@ -2203,8 +2615,8 @@ document
 
 
 /* =====================================================
-   ENVOI PARTENAIRE
-   ===================================================== */
+   FORMULAIRE PARTENAIRE
+===================================================== */
 
 document
 .getElementById("partenaireForm")
@@ -2227,16 +2639,23 @@ document
             );
 
 
-        button.disabled = true;
+        button.disabled =
+            true;
 
-        button.style.opacity = ".6";
 
-        loader.classList.add("show");
+        button.style.opacity =
+            ".6";
+
+
+        loader.classList.add(
+            "show"
+        );
 
 
         const data = {
 
-            action:"partenaire",
+            action:
+                "partenaire",
 
             entreprise:
                 document.getElementById(
@@ -2271,54 +2690,9 @@ document
 
         try{
 
-            const response =
-                await fetch(
-                    SCRIPT_URL,
-                    {
-                        method:"POST",
-                        mode:"cors",
-                        redirect:"follow",
-                        headers:{
-                            "Content-Type":
-                                "text/plain;charset=utf-8"
-                        },
-                        body:
-                            JSON.stringify(data)
-                    }
-                );
-
-
-            const text =
-                await response.text();
-
-
-            let result;
-
-
-            try{
-
-                result =
-                    JSON.parse(text);
-
-            }catch(e){
-
-                result = {
-                    success:true
-                };
-
-            }
-
-
-            if(
-                result.success === false
-            ){
-
-                throw new Error(
-                    result.message ||
-                    "Erreur lors de l'envoi."
-                );
-
-            }
+            await envoyerVersGoogle(
+                data
+            );
 
 
             showToast(
@@ -2332,19 +2706,25 @@ document
 
         }catch(error){
 
-            console.error(error);
+            console.error(
+                error
+            );
 
 
             showToast(
-                "❌ Impossible d'envoyer la proposition.",
+                "❌ Une erreur est survenue lors de l'envoi.",
                 "error"
             );
 
         }finally{
 
-            button.disabled = false;
+            button.disabled =
+                false;
 
-            button.style.opacity = "1";
+
+            button.style.opacity =
+                "1";
+
 
             loader.classList.remove(
                 "show"
@@ -2358,7 +2738,7 @@ document
 
 /* =====================================================
    INITIALISATION
-   ===================================================== */
+===================================================== */
 
 calculerReste();
 
