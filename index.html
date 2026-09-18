@@ -734,7 +734,7 @@ textarea{
 }
 
 /* =========================
-   FORMULAIRE INVISIBLE
+   IFRAME INVISIBLE
 ========================= */
 
 #sendFrame{
@@ -838,6 +838,8 @@ textarea{
 
     <div class="quick-grid">
 
+        <!-- BÉNÉFICIAIRE -->
+
         <button
             class="quick"
             onclick="showSection('beneficiaire')"
@@ -858,25 +860,29 @@ textarea{
         </button>
 
 
+        <!-- ACTUALITÉS -->
+
         <button
             class="quick"
-            onclick="showSection('epiceries')"
+            onclick="showSection('actualites')"
         >
 
             <span class="emoji">
-                🛒
+                📰
             </span>
 
             <strong>
-                Nos épiceries
+                Nos actualités
             </strong>
 
             <span>
-                Découvrir nos points d'accueil
+                Retrouvez toutes nos nouveautés
             </span>
 
         </button>
 
+
+        <!-- ÉPICERIE ITINÉRANTE -->
 
         <button
             class="quick"
@@ -898,6 +904,8 @@ textarea{
         </button>
 
 
+        <!-- DON -->
+
         <button
             class="quick"
             onclick="showSection('don')"
@@ -918,6 +926,8 @@ textarea{
         </button>
 
 
+        <!-- PARTENAIRE -->
+
         <button
             class="quick"
             onclick="showSection('partenaire')"
@@ -937,6 +947,8 @@ textarea{
 
         </button>
 
+
+        <!-- CONTACT -->
 
         <button
             class="quick"
@@ -960,6 +972,8 @@ textarea{
     </div>
 
 
+    <!-- ACTUALITÉ RAPIDE -->
+
     <div class="card">
 
         <div class="card-icon">
@@ -979,13 +993,13 @@ textarea{
             <div class="news-text">
 
                 <strong>
-                    Retrouvez les informations de l'association
+                    Les informations des Paniers Solidaires
                 </strong>
 
                 <span>
-                    Consultez régulièrement l'application
-                    pour connaître les nouveautés et
-                    informations importantes.
+                    Retrouvez prochainement toutes les
+                    actualités et informations importantes
+                    de l'association.
                 </span>
 
             </div>
@@ -994,6 +1008,8 @@ textarea{
 
     </div>
 
+
+    <!-- DON -->
 
     <div class="donation-box">
 
@@ -1856,11 +1872,12 @@ textarea{
     <div class="section-title">
 
         <h2>
-            Actualités 📰
+            Nos actualités 📰
         </h2>
 
         <p>
-            Les informations des Paniers Solidaires.
+            Retrouvez ici les informations et
+            nouveautés de l'association.
         </p>
 
     </div>
@@ -1871,7 +1888,7 @@ textarea{
         <div class="news">
 
             <div class="news-date">
-                🧺
+                INFO
             </div>
 
             <div class="news-text">
@@ -1883,12 +1900,32 @@ textarea{
                 <span>
                     Retrouvez prochainement les
                     actualités et informations
-                    de l'association ici.
+                    importantes de l'association.
                 </span>
 
             </div>
 
         </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-icon">
+            📢
+        </div>
+
+        <h3>
+            Informations
+        </h3>
+
+        <p>
+            Cette rubrique pourra être mise à jour
+            avec les événements, nouveautés,
+            changements d'horaires et informations
+            importantes de l'association.
+        </p>
 
     </div>
 
@@ -2057,7 +2094,7 @@ textarea{
 
 
 <!-- =========================
-     NAVIGATION
+     NAVIGATION BASSE
 ========================= -->
 
 <nav class="bottom-nav">
@@ -2325,7 +2362,7 @@ function dateActuelle(){
 
 
 /* =====================================================
-   CRÉATION D'UN FORMULAIRE INVISIBLE
+   AJOUT D'UN CHAMP INVISIBLE
 ===================================================== */
 
 function creerChamp(form,name,value){
@@ -2352,7 +2389,7 @@ function creerChamp(form,name,value){
 
 
 /* =====================================================
-   ENVOI SÉCURISÉ SANS FETCH / CORS
+   ENVOI VERS GOOGLE APPS SCRIPT
 ===================================================== */
 
 function envoyerVersGoogle(data){
@@ -2747,4 +2784,5 @@ calculerReste();
 </div>
 
 </body>
+
 </html>
