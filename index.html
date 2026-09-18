@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#16794a">
+
+<title>Les Paniers Solidaires</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,Arial,sans-serif;
+}
+
+:root{
+    --green:#16794a;
+    --green2:#20a15e;
+    --light:#f3f8f5;
+    --dark:#12372a;
+    --text:#24332c;
+    --white:#fff;
+    --orange:#f2a93b;
+    --red:#df5a52;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#eef4f0;
+    color:var(--text);
+    min-height:100vh;
+}
+
+/* APP */
+
+.app{
+    width:100%;
+    max-width:500px;
+    min-height:100vh;
+    margin:auto;
+    background:#f8fbf9;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 0 50px rgba(0,0,0,.12);
+}
+
+/* HEADER */
+
+.header{
+    padding:22px 20px 18px;
+    background:linear-gradient(135deg,#0e623b,#20a15e);
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+.header:before{
+    content:"";
+    position:absolute;
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    right:-70px;
+    top:-90px;
+}
+
+.header:after{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:rgba(255,255,255,.05);
+    left:-60px;
+    bottom:-70px;
+}
+
+.top{
+    position:relative;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logoIcon{
+    width:48px;
+    height:48px;
+    background:white;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+}
+
+.logoText strong{
+    display:block;
+    font-size:17px;
+}
+
+.logoText span{
+    font-size:12px;
+    opacity:.85;
+}
+
+.headerButton{
+    width:42px;
+    height:42px;
+    border:0;
+    border-radius:14px;
+    background:rgba(255,255,255,.16);
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    position:relative;
+    z-index:2;
+    margin-top:20px;
+}
+
+.hero h1{
+    font-size:30px;
+    line-height:1.1;
+    margin-bottom:9px;
+}
+
+.hero p{
+    font-size:14px;
+    line-height:1.5;
+    opacity:.9;
+}
+
+.heroButton{
+    display:inline-flex;
+    margin-top:16px;
+    padding:12px 17px;
+    background:white;
+    color:var(--green);
+    border-radius:13px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:13px;
+}
+
+/* CONTENT */
+
+.content{
+    padding:20px;
+    padding-bottom:110px;
+}
+
+.section{
+    display:none;
+    animation:fade .35s ease;
+}
+
+.section.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.title{
+    margin-bottom:16px;
+}
+
+.title h2{
+    font-size:23px;
+    color:var(--dark);
+}
+
+.title p{
+    color:#6d7c74;
+    font-size:13px;
+    margin-top:4px;
+}
+
+/* QUICK ACTIONS */
+
+.quickGrid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-bottom:25px;
+}
+
+.quick{
+    background:white;
+    border-radius:18px;
+    padding:17px;
+    box-shadow:var(--shadow);
+    cursor:pointer;
+    border:1px solid #edf1ee;
+    transition:.2s;
+}
+
+.quick:hover{
+    transform:translateY(-3px);
+}
+
+.quickIcon{
+    width:42px;
+    height:42px;
+    border-radius:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#e7f5ed;
+    font-size:21px;
+    margin-bottom:11px;
+}
+
+.quick strong{
+    display:block;
+    font-size:14px;
+}
+
+.quick span{
+    display:block;
+    font-size:11px;
+    color:#7b8881;
+    margin-top:3px;
+}
+
+/* CARDS */
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:18px;
+    margin-bottom:14px;
+    box-shadow:var(--shadow);
+    border:1px solid #edf1ee;
+}
+
+.cardHeader{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    align-items:flex-start;
+}
+
+.card h3{
+    color:var(--dark);
+    font-size:17px;
+}
+
+.card p{
+    font-size:13px;
+    line-height:1.55;
+    color:#68766f;
+    margin-top:7px;
+}
+
+.badge{
+    background:#e7f5ed;
+    color:var(--green);
+    padding:6px 9px;
+    border-radius:10px;
+    font-size:10px;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+.info{
+    margin-top:14px;
+    background:#f5f8f6;
+    padding:12px;
+    border-radius:13px;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.cardButtons{
+    display:flex;
+    gap:8px;
+    margin-top:14px;
+}
+
+.btn{
+    border:0;
+    padding:11px 13px;
+    border-radius:12px;
+    font-weight:700;
+    cursor:pointer;
+    font-size:12px;
+    text-decoration:none;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.btnGreen{
+    background:var(--green);
+    color:white;
+}
+
+.btnLight{
+    background:#eaf4ef;
+    color:var(--green);
+}
+
+/* ALERT */
+
+.alert{
+    background:linear-gradient(135deg,#fff6df,#fffaf0);
+    border:1px solid #f5dda7;
+    border-radius:18px;
+    padding:16px;
+    margin-bottom:18px;
+}
+
+.alert strong{
+    color:#986816;
+}
+
+.alert p{
+    color:#765e2c;
+    font-size:12px;
+    line-height:1.5;
+    margin-top:5px;
+}
+
+/* DONATION */
+
+.donation{
+    background:linear-gradient(135deg,#0e623b,#20a15e);
+    color:white;
+    border-radius:22px;
+    padding:20px;
+    margin-top:15px;
+    box-shadow:0 12px 30px rgba(22,121,74,.22);
+}
+
+.donation h3{
+    font-size:20px;
+}
+
+.donation p{
+    font-size:12px;
+    opacity:.88;
+    line-height:1.5;
+    margin-top:7px;
+}
+
+.donation .btn{
+    margin-top:14px;
+    background:white;
+    color:var(--green);
+}
+
+/* FORM */
+
+.formGroup{
+    margin-bottom:14px;
+}
+
+.formGroup label{
+    display:block;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:6px;
+    color:#405047;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    border:1px solid #dfe8e3;
+    background:white;
+    border-radius:12px;
+    padding:12px;
+    outline:none;
+    font-size:13px;
+    color:#25332c;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--green2);
+    box-shadow:0 0 0 3px rgba(32,161,94,.08);
+}
+
+textarea{
+    resize:vertical;
+    min-height:90px;
+}
+
+.formGrid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.full{
+    width:100%;
+}
+
+/* CALCULATOR */
+
+.calculator{
+    background:#edf7f1;
+    border-radius:18px;
+    padding:16px;
+    margin-top:18px;
+}
+
+.calculator h3{
+    font-size:16px;
+    color:var(--dark);
+    margin-bottom:12px;
+}
+
+.result{
+    background:white;
+    border-radius:15px;
+    padding:16px;
+    margin-top:12px;
+    text-align:center;
+}
+
+.result small{
+    color:#7a8780;
+}
+
+.result strong{
+    display:block;
+    font-size:26px;
+    color:var(--green);
+    margin-top:4px;
+}
+
+/* NEWS */
+
+.news{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    margin-bottom:15px;
+}
+
+.newsTop{
+    height:110px;
+    background:linear-gradient(135deg,#b8ddc9,#e7f5ed);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:44px;
+}
+
+.newsBody{
+    padding:16px;
+}
+
+.newsBody h3{
+    font-size:16px;
+}
+
+.newsBody p{
+    font-size:12px;
+    color:#707d76;
+    line-height:1.5;
+    margin-top:6px;
+}
+
+/* CONTACT */
+
+.contactItem{
+    display:flex;
+    gap:13px;
+    padding:15px 0;
+    border-bottom:1px solid #edf0ee;
+}
+
+.contactIcon{
+    width:42px;
+    height:42px;
+    border-radius:13px;
+    background:#e7f5ed;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+}
+
+.contactItem strong{
+    font-size:13px;
+}
+
+.contactItem p{
+    margin-top:3px;
+    color:#758179;
+    font-size:12px;
+}
+
+/* BOTTOM NAV */
+
+.bottomNav{
+    position:fixed;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:100%;
+    max-width:500px;
+    height:76px;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(15px);
+    border-top:1px solid #e5ebe7;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    z-index:100;
+    padding-bottom:5px;
+}
+
+.navItem{
+    border:0;
+    background:none;
+    color:#87938d;
+    font-size:10px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+    cursor:pointer;
+    min-width:60px;
+}
+
+.navItem span{
+    font-size:22px;
+}
+
+.navItem.active{
+    color:var(--green);
+    font-weight:700;
+}
+
+.navCenter{
+    width:58px;
+    height:58px;
+    background:linear-gradient(135deg,#0e623b,#20a15e);
+    border-radius:19px;
+    color:white;
+    margin-top:-28px;
+    box-shadow:0 8px 20px rgba(22,121,74,.25);
+}
+
+.navCenter span{
+    font-size:24px;
+}
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:92px;
+    transform:translate(-50%,20px);
+    background:#173c2d;
+    color:white;
+    padding:12px 18px;
+    border-radius:13px;
+    font-size:12px;
+    opacity:0;
+    pointer-events:none;
+    transition:.3s;
+    z-index:999;
+    width:max-content;
+    max-width:90%;
+    text-align:center;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(10,35,24,.55);
+    backdrop-filter:blur(5px);
+    display:none;
+    align-items:flex-end;
+    justify-content:center;
+    z-index:1000;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modalBox{
+    background:white;
+    width:100%;
+    max-width:500px;
+    border-radius:25px 25px 0 0;
+    padding:22px;
+    animation:slideUp .3s ease;
+    max-height:85vh;
+    overflow:auto;
+}
+
+@keyframes slideUp{
+    from{
+        transform:translateY(100%);
+    }
+    to{
+        transform:translateY(0);
+    }
+}
+
+.close{
+    float:right;
+    border:0;
+    background:#eef4f0;
+    width:35px;
+    height:35px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* DESKTOP */
+
+@media(min-width:700px){
+
+    body{
+        padding:20px;
+    }
+
+    .app{
+        border-radius:30px;
+        min-height:calc(100vh - 40px);
+    }
+
+    .bottomNav{
+        bottom:20px;
+        border-radius:20px;
+        width:calc(100% - 40px);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="top">
+
+        <div class="logo">
+
+            <div class="logoIcon">🛒</div>
+
+            <div class="logoText">
+                <strong>Les Paniers Solidaires</strong>
+                <span>Nord Alpilles</span>
+            </div>
+
+        </div>
+
+        <button class="headerButton" onclick="openContact()">☎</button>
+
+    </div>
+
+    <div class="hero">
+
+        <h1>La solidarité<br>au quotidien.</h1>
+
+        <p>
+            Une épicerie sociale et solidaire pour accompagner
+            les personnes et les familles en difficulté.
+        </p>
+
+        <a href="#" class="heroButton" onclick="showSection('beneficiaire');return false;">
+            📝 Devenir bénéficiaire
+        </a>
+
+    </div>
+
+</header>
+
+
+<main class="content">
+
+<!-- ACCUEIL -->
+
+<section id="home" class="section active">
+
+    <div class="title">
+        <h2>Bienvenue 👋</h2>
+        <p>Comment pouvons-nous vous aider ?</p>
+    </div>
+
+    <div class="quickGrid">
+
+        <div class="quick" onclick="showSection('epiceries')">
+            <div class="quickIcon">🛒</div>
+            <strong>Nos épiceries</strong>
+            <span>Adresses & horaires</span>
+        </div>
+
+        <div class="quick" onclick="showSection('beneficiaire')">
+            <div class="quickIcon">📝</div>
+            <strong>Être bénéficiaire</strong>
+            <span>Faire une demande</span>
+        </div>
+
+        <div class="quick" onclick="showSection('mobile')">
+            <div class="quickIcon">🚐</div>
+            <strong>Épicerie itinérante</strong>
+            <span>Voir les passages</span>
+        </div>
+
+        <div class="quick" onclick="showSection('don')">
+            <div class="quickIcon">❤️</div>
+            <strong>Faire un don</strong>
+            <span>Soutenir nos actions</span>
+        </div>
+
+    </div>
+
+
+    <div class="alert">
+
+        <strong>💚 Une solidarité active</strong>
+
+        <p>
+            Notre objectif est d'accompagner les personnes
+            en difficulté vers davantage d'autonomie.
+        </p>
+
+    </div>
+
+
+    <div class="title">
+        <h2>À la une</h2>
+        <p>Les dernières informations</p>
+    </div>
+
+
+    <div class="news">
+
+        <div class="newsTop">🥕</div>
+
+        <div class="newsBody">
+
+            <h3>Mieux manger pour tous</h3>
+
+            <p>
+                Découvrez les initiatives mises en place pour
+                faciliter l'accès à une alimentation saine et équilibrée.
+            </p>
+
+            <button class="btn btnGreen"
+                    onclick="showToast('Article disponible prochainement')">
+                Lire l'article
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="donation">
+
+        <h3>❤️ Soutenez notre action</h3>
+
+        <p>
+            Vos dons permettent à l'association de poursuivre
+            ses actions auprès des familles accompagnées.
+        </p>
+
+        <button class="btn"
+                onclick="showSection('don')">
+            Faire un don
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- EPICERIES -->
+
+<section id="epiceries" class="section">
+
+    <div class="title">
+
+        <h2>Nos épiceries 🛒</h2>
+
+        <p>
+            Retrouvez les différents points d'accueil.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="cardHeader">
+
+            <div>
+                <h3>📍 Barbentane</h3>
+            </div>
+
+            <span class="badge">Épicerie</span>
+
+        </div>
+
+        <div class="info">
+
+            <strong>Salle Salamandre</strong><br>
+
+            Rue des Italiens<br><br>
+
+            🕐 Mercredi : 8h30 → 12h
+
+        </div>
+
+        <div class="cardButtons">
+
+            <button class="btn btnGreen"
+                    onclick="openMaps('Salle Salamandre Barbentane')">
+                📍 Itinéraire
+            </button>
+
+            <button class="btn btnLight"
+                    onclick="showToast('Ouvert le mercredi de 8h30 à 12h')">
+                🕐 Horaires
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="cardHeader">
+
+            <div>
+                <h3>📍 Châteaurenard</h3>
+            </div>
+
+            <span class="badge">Épicerie</span>
+
+        </div>
+
+        <div class="info">
+
+            <strong>35 boulevard Léon Gambetta</strong><br>
+            Châteaurenard<br><br>
+
+            🕐 Mardi : 9h → 12h<br>
+            🕐 Mardi : 14h → 16h30<br>
+            🕐 Samedi : 9h → 12h
+
+        </div>
+
+        <div class="cardButtons">
+
+            <button class="btn btnGreen"
+                    onclick="openMaps('35 boulevard Léon Gambetta Châteaurenard')">
+                📍 Itinéraire
+            </button>
+
+            <button class="btn btnLight"
+                    onclick="showToast('Voir les horaires ci-dessus')">
+                🕐 Horaires
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="cardHeader">
+
+            <div>
+                <h3>🚐 Épicerie itinérante</h3>
+            </div>
+
+            <span class="badge">Mobile</span>
+
+        </div>
+
+        <p>
+            Retrouvez-nous directement dans plusieurs communes
+            grâce à notre épicerie itinérante.
+        </p>
+
+        <div class="cardButtons">
+
+            <button class="btn btnGreen"
+                    onclick="showSection('mobile')">
+                Voir les passages
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BENEFICIAIRE -->
+
+<section id="beneficiaire" class="section">
+
+    <div class="title">
+
+        <h2>Devenir bénéficiaire 📝</h2>
+
+        <p>
+            Faites votre demande directement depuis l'application.
+        </p>
+
+    </div>
+
+
+    <div class="alert">
+
+        <strong>ℹ️ Comment ça fonctionne ?</strong>
+
+        <p>
+            Votre situation est étudiée afin de déterminer
+            votre accès au dispositif et les conditions
+            d'accompagnement.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="formGroup">
+
+            <label>Vous êtes</label>
+
+            <select id="type">
+                <option>Particulier</option>
+                <option>Travailleur social</option>
+            </select>
+
+        </div>
+
+
+        <div class="formGrid">
+
+            <div class="formGroup">
+
+                <label>Nom</label>
+
+                <input id="nom" placeholder="Votre nom">
+
+            </div>
+
+            <div class="formGroup">
+
+                <label>Prénom</label>
+
+                <input id="prenom" placeholder="Votre prénom">
+
+            </div>
+
+        </div>
+
+
+        <div class="formGrid">
+
+            <div class="formGroup">
+
+                <label>Téléphone</label>
+
+                <input id="telephone"
+                       type="tel"
+                       placeholder="06 00 00 00 00">
+
+            </div>
+
+            <div class="formGroup">
+
+                <label>Email</label>
+
+                <input id="email"
+                       type="email"
+                       placeholder="email@exemple.fr">
+
+            </div>
+
+        </div>
+
+
+        <div class="formGroup">
+
+            <label>Adresse</label>
+
+            <input id="adresse"
+                   placeholder="Votre adresse">
+
+        </div>
+
+
+        <div class="formGrid">
+
+            <div class="formGroup">
+
+                <label>Code postal</label>
+
+                <input id="cp"
+                       placeholder="13160">
+
+            </div>
+
+            <div class="formGroup">
+
+                <label>Ville</label>
+
+                <input id="ville"
+                       placeholder="Votre ville">
+
+            </div>
+
+        </div>
+
+
+        <div class="formGroup">
+
+            <label>Nombre de personnes à charge</label>
+
+            <input id="personnes"
+                   type="number"
+                   min="0"
+                   value="0">
+
+        </div>
+
+    </div>
+
+
+    <div class="calculator">
+
+        <h3>💶 Estimation du reste à vivre</h3>
+
+        <div class="formGroup">
+
+            <label>Ressources mensuelles (€)</label>
+
+            <input id="ressources"
+                   type="number"
+                   placeholder="0">
+
+        </div>
+
+        <div class="formGroup">
+
+            <label>Charges mensuelles (€)</label>
+
+            <input id="charges"
+                   type="number"
+                   placeholder="0">
+
+        </div>
+
+        <button class="btn btnGreen full"
+                onclick="calculate()">
+            Calculer
+        </button>
+
+
+        <div class="result">
+
+            <small>Reste à vivre mensuel</small>
+
+            <strong id="resultat">0 €</strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>📎 Documents</h3>
+
+        <p>
+            Les justificatifs nécessaires pourront être demandés
+            lors de l'étude de votre dossier.
+        </p>
+
+        <div class="info">
+
+            • Justificatif de logement<br>
+            • Factures / charges<br>
+            • Ressources<br>
+            • Documents familiaux<br>
+            • Justificatifs administratifs
+
+        </div>
+
+    </div>
+
+
+    <button class="btn btnGreen full"
+            onclick="submitBeneficiaire()">
+
+        📩 Envoyer ma demande
+
+    </button>
+
+</section>
+
+
+<!-- ITINERANTE -->
+
+<section id="mobile" class="section">
+
+    <div class="title">
+
+        <h2>Épicerie itinérante 🚐</h2>
+
+        <p>
+            Retrouvez les différents passages.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="cardHeader">
+
+            <h3>Lundi</h3>
+
+            <span class="badge">Tournée</span>
+
+        </div>
+
+        <div class="info">
+
+            📍 Graveson<br>
+            🕐 8h30 → 10h<br><br>
+
+            📍 Maillane<br>
+            🕐 10h15 → 11h<br><br>
+
+            📍 Noves<br>
+            🕐 13h30 → 14h30
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="cardHeader">
+
+            <h3>Vendredi</h3>
+
+            <span class="badge">Tournée</span>
+
+        </div>
+
+        <div class="info">
+
+            📍 Cabannes<br>
+            🕐 8h30 → 11h
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="cardHeader">
+
+            <h3>📍 Tarascon</h3>
+
+            <span class="badge">Mobile</span>
+
+        </div>
+
+        <p>
+            Une épicerie itinérante est également proposée
+            à Tarascon.
+        </p>
+
+        <div class="info">
+
+            🕐 Mercredi<br>
+            9h → 15h
+
+        </div>
+
+    </div>
+
+
+    <div class="alert">
+
+        <strong>⚠️ Accès</strong>
+
+        <p>
+            Pour accéder à l'épicerie itinérante,
+            adressez-vous à votre CCAS ou effectuez
+            une demande de bénéficiaire.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- DON -->
+
+<section id="don" class="section">
+
+    <div class="title">
+
+        <h2>Faire un don ❤️</h2>
+
+        <p>
+            Chaque soutien aide l'association à agir.
+        </p>
+
+    </div>
+
+
+    <div class="donation">
+
+        <h3>Votre soutien compte.</h3>
+
+        <p>
+            Les dons financiers et matériels permettent
+            de soutenir les familles accompagnées et
+            de développer les actions solidaires.
+        </p>
+
+        <button class="btn"
+                onclick="showToast('Redirection vers la page de don')">
+            ❤️ Je souhaite donner
+        </button>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>🏢 Vous êtes une entreprise ?</h3>
+
+        <p>
+            Vous pouvez devenir un acteur solidaire du territoire
+            grâce aux dons de produits ou aux dons financiers.
+        </p>
+
+        <button class="btn btnGreen"
+                onclick="showSection('partenaire')">
+
+            🤝 Devenir partenaire
+
+        </button>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>🥫 Don de produits</h3>
+
+        <p>
+            Vous souhaitez donner des produits alimentaires,
+            d'hygiène ou d'autres produits utiles ?
+        </p>
+
+        <button class="btn btnLight"
+                onclick="openContact()">
+
+            Contacter l'association
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PARTENAIRE -->
+
+<section id="partenaire" class="section">
+
+    <div class="title">
+
+        <h2>Devenir partenaire 🤝</h2>
+
+        <p>
+            Entreprise, commerçant, restaurateur ou collectivité.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="formGroup">
+
+            <label>Nom de l'entreprise</label>
+
+            <input id="entreprise"
+                   placeholder="Votre entreprise">
+
+        </div>
+
+
+        <div class="formGroup">
+
+            <label>Nom du contact</label>
+
+            <input id="contact"
+                   placeholder="Votre nom">
+
+        </div>
+
+
+        <div class="formGroup">
+
+            <label>Email</label>
+
+            <input id="emailPart"
+                   type="email"
+                   placeholder="contact@entreprise.fr">
+
+        </div>
+
+
+        <div class="formGroup">
+
+            <label>Type de soutien</label>
+
+            <select>
+
+                <option>Don financier</option>
+                <option>Don alimentaire</option>
+                <option>Don de produits</option>
+                <option>Mécénat</option>
+                <option>Autre</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="formGroup">
+
+            <label>Message</label>
+
+            <textarea placeholder="Expliquez votre projet..."></textarea>
+
+        </div>
+
+
+        <button class="btn btnGreen full"
+                onclick="showToast('Votre demande est prête à être envoyée')">
+
+            🤝 Envoyer ma demande
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ACTUALITES -->
+
+<section id="actualites" class="section">
+
+    <div class="title">
+
+        <h2>Actualités 📰</h2>
+
+        <p>
+            Découvrez les actions de l'association.
+        </p>
+
+    </div>
+
+
+    <div class="news">
+
+        <div class="newsTop">🥗</div>
+
+        <div class="newsBody">
+
+            <h3>Mieux manger pour tous</h3>
+
+            <p>
+                Une initiative destinée à favoriser une alimentation
+                saine et équilibrée et à faciliter l'accès à des
+                produits de qualité.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="news">
+
+        <div class="newsTop">🍓</div>
+
+        <div class="newsBody">
+
+            <h3>Des produits grâce aux donateurs</h3>
+
+            <p>
+                Les partenaires et donateurs permettent de
+                redistribuer de nombreux produits aux personnes
+                accompagnées.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="news">
+
+        <div class="newsTop">🎒</div>
+
+        <div class="newsBody">
+
+            <h3>Actions solidaires</h3>
+
+            <p>
+                L'association organise régulièrement des opérations
+                en partenariat avec les acteurs locaux.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ASSOCIATION -->
+
+<section id="association" class="section">
+
+    <div class="title">
+
+        <h2>L'association 💚</h2>
+
+        <p>
+            Une solidarité active et responsable.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>Notre mission</h3>
+
+        <p>
+            Les Paniers Solidaires Nord Alpilles ont pour objectif
+            d'aider les personnes en difficulté et de les accompagner
+            vers davantage d'autonomie.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>Nos valeurs</h3>
+
+        <div class="info">
+
+            💚 Solidarité active<br><br>
+
+            🤝 Accompagnement<br><br>
+
+            🏠 Autonomie<br><br>
+
+            👂 Écoute et orientation<br><br>
+
+            🥫 Hygiène et sécurité alimentaire
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>👥 Une équipe engagée</h3>
+
+        <p>
+            Des bénévoles et membres de l'équipe participent
+            toute l'année à l'animation des magasins et aux
+            différentes opérations de l'association.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="section">
+
+    <div class="title">
+
+        <h2>Contact ☎️</h2>
+
+        <p>
+            Besoin d'une information ?
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="contactItem">
+
+            <div class="contactIcon">📍</div>
+
+            <div>
+
+                <strong>Adresse</strong>
+
+                <p>
+                    35 boulevard Léon Gambetta<br>
+                    Châteaurenard
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="contactItem">
+
+            <div class="contactIcon">☎️</div>
+
+            <div>
+
+                <strong>Téléphone</strong>
+
+                <p>04 90 39 70 31</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="contactItem">
+
+            <div class="contactIcon">✉️</div>
+
+            <div>
+
+                <strong>Email</strong>
+
+                <p>drazik.paniersolidaires@gmail.com</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button class="btn btnGreen full"
+            onclick="callAssociation()">
+
+        ☎️ Appeler l'association
+
+    </button>
+
+
+    <button class="btn btnLight full"
+            style="margin-top:10px"
+            onclick="openMaps('35 boulevard Léon Gambetta Châteaurenard')">
+
+        📍 Ouvrir dans Maps
+
+    </button>
+
+</section>
+
+</main>
+
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottomNav">
+
+    <button class="navItem active"
+            onclick="showSection('home',this)">
+
+        <span>🏠</span>
+        Accueil
+
+    </button>
+
+
+    <button class="navItem"
+            onclick="showSection('epiceries',this)">
+
+        <span>🛒</span>
+        Épiceries
+
+    </button>
+
+
+    <button class="navItem navCenter"
+            onclick="showSection('beneficiaire',this)">
+
+        <span>+</span>
+        Demande
+
+    </button>
+
+
+    <button class="navItem"
+            onclick="showSection('actualites',this)">
+
+        <span>📰</span>
+        Actualités
+
+    </button>
+
+
+    <button class="navItem"
+            onclick="showSection('association',this)">
+
+        <span>💚</span>
+        Association
+
+    </button>
+
+</nav>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div id="toast" class="toast"></div>
+
+
+<!-- MODAL CONTACT -->
+
+<div id="contactModal" class="modal">
+
+    <div class="modalBox">
+
+        <button class="close"
+                onclick="closeContact()">✕</button>
+
+        <h2>Contacter l'association</h2>
+
+        <p style="margin-top:8px;color:#718078;font-size:13px;line-height:1.5;">
+
+            Les Paniers Solidaires Nord Alpilles
+
+        </p>
+
+        <div class="info" style="margin-top:18px;">
+
+            📞 04 90 39 70 31<br><br>
+
+            ✉️ drazik.paniersolidaires@gmail.com<br><br>
+
+            📍 35 boulevard Léon Gambetta<br>
+            Châteaurenard
+
+        </div>
+
+        <div class="cardButtons">
+
+            <button class="btn btnGreen"
+                    onclick="callAssociation()">
+
+                📞 Appeler
+
+            </button>
+
+            <button class="btn btnLight"
+                    onclick="openMaps('35 boulevard Léon Gambetta Châteaurenard')">
+
+                📍 Itinéraire
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* NAVIGATION */
+
+function showSection(id,button){
+
+    document.querySelectorAll('.section').forEach(section=>{
+        section.classList.remove('active');
+    });
+
+    const target=document.getElementById(id);
+
+    if(target){
+        target.classList.add('active');
+    }
+
+    document.querySelectorAll('.navItem').forEach(item=>{
+        item.classList.remove('active');
+    });
+
+    if(button){
+        button.classList.add('active');
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
+}
+
+
+/* TOAST */
+
+function showToast(message){
+
+    const toast=document.getElementById('toast');
+
+    toast.textContent=message;
+
+    toast.classList.add('show');
+
+    setTimeout(()=>{
+        toast.classList.remove('show');
+    },3000);
+}
+
+
+/* MAPS */
+
+function openMaps(place){
+
+    const url=
+        "https://www.google.com/maps/search/?api=1&query="+
+        encodeURIComponent(place);
+
+    window.open(url,"_blank");
+
+}
+
+
+/* TELEPHONE */
+
+function callAssociation(){
+
+    window.location.href="tel:0490397031";
+
+}
+
+
+/* CONTACT MODAL */
+
+function openContact(){
+
+    document.getElementById('contactModal')
+        .classList.add('show');
+
+}
+
+function closeContact(){
+
+    document.getElementById('contactModal')
+        .classList.remove('show');
+
+}
+
+
+/* CALCUL RESTE A VIVRE */
+
+function calculate(){
+
+    const ressources=
+        parseFloat(document.getElementById('ressources').value)||0;
+
+    const charges=
+        parseFloat(document.getElementById('charges').value)||0;
+
+    const personnes=
+        parseInt(document.getElementById('personnes').value)||1;
+
+    const reste=ressources-charges;
+
+    const parJour=
+        reste/(personnes*30);
+
+    document.getElementById('resultat')
+        .textContent=
+        reste.toLocaleString('fr-FR',{
+            minimumFractionDigits:2,
+            maximumFractionDigits:2
+        })+" €";
+
+    if(reste<0){
+
+        showToast(
+            "Attention : les charges dépassent les ressources."
+        );
+
+    }else{
+
+        showToast(
+            "Estimation calculée : "+
+            parJour.toFixed(2)+
+            " € / jour / personne"
+        );
+
+    }
+
+}
+
+
+/* FORMULAIRE BENEFICIAIRE */
+
+function submitBeneficiaire(){
+
+    const nom=
+        document.getElementById('nom').value.trim();
+
+    const prenom=
+        document.getElementById('prenom').value.trim();
+
+    const telephone=
+        document.getElementById('telephone').value.trim();
+
+    const email=
+        document.getElementById('email').value.trim();
+
+    if(!nom || !prenom || !telephone || !email){
+
+        showToast(
+            "Veuillez compléter les champs obligatoires."
+        );
+
+        return;
+    }
+
+    showToast(
+        "Votre demande a été préparée. L'association pourra vous recontacter."
+    );
+
+}
+
+
+/* CLICK OUTSIDE MODAL */
+
+document.getElementById('contactModal')
+.addEventListener('click',function(e){
+
+    if(e.target===this){
+        closeContact();
+    }
+
+});
+
+
+/* INITIALISATION */
+
+document.addEventListener('DOMContentLoaded',()=>{
+
+    console.log(
+        "Les Paniers Solidaires - Application"
+    );
+
+});
+
+</script>
+
+</body>
+</html>
